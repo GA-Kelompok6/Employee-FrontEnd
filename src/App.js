@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from './components/login';
+import Forget from './components/forget';
+import Admin from './components/admin';
+import Employee from './components/employee';
+import Attendence from './components/employee';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   return (
+      // <h1>H</h1>
+      <Router>
+         <Switch>
+            <Route exact path='/'>
+               <Login />
+               {/* <Employee /> */}
+
+            </Route>
+            <Route exact path='/forget'>
+               <Forget />
+            </Route>
+            <Route exact path="/admin">
+               <Admin />
+            </Route>
+            <Route exact path="/employee">
+               <Employee />
+            </Route>
+         </Switch>
+      </Router>
+   );
 }
 
 export default App;
