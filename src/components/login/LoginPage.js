@@ -6,17 +6,6 @@ import './style.css';
 
 export default function LoginPage({ Login, Register }) {
 
-   // const data = {
-   //    email: "",
-   //    pass: ""
-   // }
-
-   // const state = {
-   //    name: '',
-   //    email: '',
-   //    pass: ''
-   // }
-
    const [Logindetails, setDetails] = useState({ email: '', pass: '' });
    const [SignupDetails, setSignupDetails] = useState({ name: '', email: '', pass: '', role: '' })
 

@@ -1,27 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Attendance from './Attendance';
 import axios from "axios";
-// import geolib from 'geolib'
-// import { getDistance } from 'geolib';
+import geolib, { convertDistance } from 'geolib'
+import { getDistance } from 'geolib';
+import ChangeOffice from './ChangeOffice';
 
 export default function Employee() {
+
+
+
 
    const linkAPI = "https://614d6cc4e3cf1f001712d113.mockapi.io/location"
 
    function CheckLocation() {
+
+
       navigator.geolocation.getCurrentPosition(postition => {
-         const lat1 = 40.7143528;
-         const long1 = -74.0059731;
-         // const lat2= 
-         console.log(lat1);
-         console.log(long1);
+         // Search Long, Lang
+         const my_coords = { latitude: postition.coords.latitude, longitude: postition.coords.longitude }
+         const kantor_coords = { latitude: -6.990638, longitude: 110.423667 }
+         // const kantor_coords = { latitude: -7.376397, longitude: 110.440711 }
 
-         // geolib.getPreciseDistance(
-         //    { latitude: 51.5103, longitude: 7.49347 },
-         //    { latitude: "51° 31' N", longitude: "7° 28' E" }
-         // );
+         // 1000 buat akurasi
+         let distance = getDistance(my_coords, kantor_coords, 1)
+         console.log(distance);
 
+         // Convert to KM
+         let convert = convertDistance(distance, 'km');
+         console.log(convert)
+
+         if (convert > 5) {
+            alert('Jarak anda terlalu jauh, Maks 5 KM')
+         } else {
+            Location()
+         }
       })
+
    }
 
 
@@ -37,6 +51,7 @@ export default function Employee() {
                   // setLat({ ...lat, location: postition.coords.latitude })
                   // console.log(loc)
                   // console.log(setLat)
+                  alert("Anda sudah absen!");
 
                })
                .catch(error => {
@@ -50,8 +65,14 @@ export default function Employee() {
       }
    }
 
+   function Change(details) {
+      alert(details.address);
+
+   }
+
 
    return (
       <Attendance Attendance={CheckLocation} />
+      // <ChangeOffice ChangeOffice={Change} />
    )
 }

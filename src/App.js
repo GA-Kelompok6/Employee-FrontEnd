@@ -5,6 +5,7 @@ import Forget from './components/forget';
 import Admin from './components/admin';
 import Employee from './components/employee';
 import Attendence from './components/employee';
+import ChangeOffice from './components/employee/ChangeOffice';
 
 function App() {
    return (
@@ -12,9 +13,8 @@ function App() {
       <Router>
          <Switch>
             <Route exact path='/'>
-               <Login />
-               {/* <Employee /> */}
-
+               {/* <Login /> */}
+               <Employee />
             </Route>
             <Route exact path='/forget'>
                <Forget />
