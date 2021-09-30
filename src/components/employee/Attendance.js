@@ -25,7 +25,7 @@ export default function Attendance({ Attendance }) {
          <Navbar />
 
          <form onSubmit={submitHandlerAttendence}>
-            <button type="submit"></button>
+            <button type="submit">Test</button>
 
          </form>
          {/* <ClipLoader color={color} loading={loading} css={override} size={150} /> */}
