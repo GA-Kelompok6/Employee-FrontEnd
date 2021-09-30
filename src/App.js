@@ -13,8 +13,8 @@ function App() {
       <Router>
          <Switch>
             <Route exact path='/'>
-               {/* <Login /> */}
-               <Employee />
+               <Login />
+               {/* <Employee /> */}
             </Route>
             <Route exact path='/forget'>
                <Forget />

@@ -1,5 +1,5 @@
 import React, { useState, Component } from 'react'
-import './style.css'
+// import './style.css'
 import LoginPage from './LoginPage';
 import axios from 'axios';
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import Admin from '../admin';
 
 export default function Login() {
    // const setUser = useState({ name: "", email: "" });
+   require('./style.css')
 
    const LinkAPI = "https://614d6cc4e3cf1f001712d113.mockapi.io/Users";
 

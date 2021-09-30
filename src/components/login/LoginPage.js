@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import mainLogo from '../src/logo.png';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import './style.css';
+// import './style.css';
 
 export default function LoginPage({ Login, Register }) {
+   require('./style.css')
 
    const [Logindetails, setDetails] = useState({ email: '', pass: '' });
    const [SignupDetails, setSignupDetails] = useState({ name: '', email: '', pass: '', role: '' })
