@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ClipLoader from "react-spinners/ClipLoader";
+import Navbar from '../navsidebar/Navbar';
 
 export default function Attendance({ Attendance }) {
    const submitHandlerAttendence = e => {
@@ -21,6 +22,7 @@ export default function Attendance({ Attendance }) {
    return (
 
       <div>
+         <Navbar />
 
          <form onSubmit={submitHandlerAttendence}>
             <button type="submit"></button>
