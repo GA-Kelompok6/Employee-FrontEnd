@@ -15,5 +15,5 @@
 ## Reactsrap
 `npm install reactstrap`
 
-## jwt code
+## jwt decode
 `npm install jwt-decode`
