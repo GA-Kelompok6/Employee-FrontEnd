@@ -8,7 +8,7 @@ export default function LoginPage({ Login, Register }) {
    require('./style.css')
 
    const [Logindetails, setDetails] = useState({ username: '', password: '' });
-   const [SignupDetails, setSignupDetails] = useState({ username: '', email: '', password: '', role: '' })
+   const [SignupDetails, setSignupDetails] = useState({ username: '', name: '', email: '', password: '', role: '' })
 
    const submitHandlerLogin = e => {
       e.preventDefault();
@@ -36,7 +36,8 @@ export default function LoginPage({ Login, Register }) {
                      <a href="/" className="social"><i className="fab fa-linkedin-in"></i></a>
                   </div>
                   Or use email
-                  <input type="text" placeholder="Name" id="nameSignup" required value={SignupDetails.username} onChange={e => setSignupDetails({ ...SignupDetails, username: e.target.value })} />
+                  <input type="text" placeholder="Username" id="nameSignup" required value={SignupDetails.username} onChange={e => setSignupDetails({ ...SignupDetails, username: e.target.value })} />
+                  <input type="text" placeholder="Name" id="nameSignup" required value={SignupDetails.name} onChange={e => setSignupDetails({ ...SignupDetails, name: e.target.value })} />
                   <input type="email" placeholder="Email" id="emailSignup" required value={SignupDetails.email} onChange={e => setSignupDetails({ ...SignupDetails, email: e.target.value })} />
                   <input type="password" placeholder="Password" id="passSignup" required value={SignupDetails.password} onChange={e => setSignupDetails({ ...SignupDetails, password: e.target.value })} />
                   <div id="radio-button" required value={SignupDetails.role} onChange={e => setSignupDetails({ ...SignupDetails, role: e.target.value })}>
@@ -61,7 +62,7 @@ export default function LoginPage({ Login, Register }) {
                      <a href="/" className="social"><i className="fab fa-linkedin-in"></i></a>
                   </div>
                   <span>Or use your account </span>
-                  <input type="email" placeholder="E mail" id="email" name="email" onChange={e => setDetails({ ...Logindetails, username: e.target.value })} value={Logindetails.username} />
+                  <input type="text" placeholder="Username" id="email" name="email" onChange={e => setDetails({ ...Logindetails, username: e.target.value })} value={Logindetails.username} />
                   <input type="password" placeholder="Password" id="pass" name="pass" onChange={e => setDetails({ ...Logindetails, password: e.target.value })} value={Logindetails.password} />
                   <Link to="/forget">
                      Forgot your password?

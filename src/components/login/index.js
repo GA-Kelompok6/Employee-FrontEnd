@@ -12,6 +12,7 @@ export default function Login() {
    require('./style.css')
 
    const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/home/login";
+   const LinkAPIRegister = "https://arcane-badlands-64583.herokuapp.com/home/register";
 
    const Login = details => {
       // console.log(details);
@@ -48,24 +49,12 @@ export default function Login() {
          return (false)
       }
 
-
-      axios.get(LinkAPI)
+      axios.post(LinkAPIRegister, details)
          .then(res => {
             console.log(res.data);
-            const myData = res.data;
-            let user = myData.filter((item) => item.email === details.email);
-            console.log(user);
-            if (user.length > 0) {
-               alert("Anda sudah memiliki emai. Silahkan login")
-            } else {
-               axios.post(LinkAPI, details)
-                  .then(res => {
-                     console.log(res.data);
-                  })
-                  .catch(error => {
-                     console.log(error)
-                  })
-            }
+         })
+         .catch(error => {
+            console.log(error)
          })
 
 
