@@ -29,11 +29,12 @@ export default function Login() {
                localStorage.setItem("token", res.data);
                var decoded = jwt_decode(localStorage.getItem("token"));
                console.log(decoded.role)
-               Swal.fire(
-                  'Pendaftaran berhasil!',
-                  'silahkan menekan tombol berikut',
-                  'success'
-               )
+               if (decoded.role === "Admin") {
+                  window.location.replace("./admin");
+               } else if (decoded.role === "User") {
+                  window.location.replace("./employee");
+               }
+
             }).catch(err => {
                console.log(err)
             })
