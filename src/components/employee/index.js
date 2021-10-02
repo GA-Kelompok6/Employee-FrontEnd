@@ -7,6 +7,8 @@ import ChangeOffice from './ChangeOffice';
 import { css } from "@emotion/react";
 import HashLoader from "react-spinners/HashLoader";
 import Swal from "sweetalert2";
+import Navbar from '../navsidebar/Navbar';
+import AllAttendance from './AllAttendance';
 
 export default function Employee() {
 
@@ -18,11 +20,29 @@ export default function Employee() {
    margin: 0 auto;
    border-color: red;
    `;
+
+   const [CurrentDate, setCurrentDate] = useState('')
+
+   useEffect(() => {
+      var date = new Date().getDate()
+      var month = new Date().getMonth() + 1;
+      var year = new Date().getFullYear()
+      var hours = new Date().getHours()
+      var min = new Date().getMinutes()
+      var sec = new Date().getSeconds()
+
+      setCurrentDate(
+         date + '/' + month + '/' + year + ' ' + hours + ':' + min + ':' + sec
+      )
+      return () => {
+
+      }
+   }, [])
    
 
 
 
-   const linkAPI = "https://614d6cc4e3cf1f001712d113.mockapi.io/location"
+   const linkAPI = "https://613618d38700c50017ef53e3.mockapi.io/Absensi"
 
    function CheckLocation() {
       setDone(false);
@@ -51,18 +71,19 @@ export default function Employee() {
             })
             setDone(true);
          } else {
-            Location()
+            Location(convert)
          }
       })
 
    }
 
 
-   function Location() {
+   function Location(jarak) {
       if ('geolocation' in navigator) {
          console.log('avail');
+         const jarakkecil = parseInt(jarak, 0)
          navigator.geolocation.getCurrentPosition(postition => {
-            const loc = { location: [postition.coords.latitude, postition.coords.longitude] };
+            const loc = { location: [postition.coords.latitude, postition.coords.longitude], tanggalabsen: CurrentDate, jarak: jarakkecil };
             console.log(loc);
             axios.post(linkAPI, loc)
                .then(res => {
@@ -101,13 +122,15 @@ export default function Employee() {
    return (
       <>
       {!done ? (
-         <div style={{position:"fixed", top:"50%", left:"50%", opacity:"50%", transform: "translate(-50%, -50%)"}}>
+         <div style={{position:"fixed", top:"50%", left:"50%", transform: "translate(-50%, -50%)"}}>
             <HashLoader color={color} loading={loading} css={override} size={100} />
          </div>
       ) : (
          <>
+         <Navbar />
          <Attendance Attendance={CheckLocation} />
          {/* <ChangeOffice ChangeOffice={Change} /> */}
+         {/* <AllAttendance /> */}
       </>
       )}
       </>
