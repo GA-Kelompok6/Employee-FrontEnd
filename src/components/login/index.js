@@ -38,7 +38,7 @@ export default function Login() {
          return false;
       }
 
-      if (details.pass.length < 6) {
+      if (details.password.length < 6) {
          alert("Password minimal 6 karakter");
          return false;
       }
