@@ -1,7 +1,7 @@
 # INSTALL NPM
 
 ## Axios
-npm i --save axios
+`npm i --save axios`
 
 ## Rreact Router Dom
 npm install --save react-router-dom
