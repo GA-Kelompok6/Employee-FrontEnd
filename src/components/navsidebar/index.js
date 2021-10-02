@@ -53,6 +53,8 @@ function Navbar() {
                      </Link>
                   </li>
                   {userData.map((item, index) => {
+                     // Caranya gimanaaaa???
+                     window.localStorage.clear();
                      return (
                         <li key={index} className={item.cName}>
                            <Link to={item.path}>

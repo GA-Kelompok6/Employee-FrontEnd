@@ -20,9 +20,10 @@ export default function Employee() {
    margin: 0 auto;
    border-color: red;
    `;
+   
 
 
-   const linkAPI = "https://614d6cc4e3cf1f001712d113.mockapi.io/Attendance"
+   const linkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/add"
 
    function CheckLocation() {
       setDone(false);

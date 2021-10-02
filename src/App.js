@@ -6,6 +6,7 @@ import Admin from './components/admin';
 import Employee from './components/employee';
 import Attendence from './components/employee';
 import ChangeOffice from './components/employee/ChangeOffice';
+import AllAttendance from './components/employee/AllAttendance';
 
 function App() {
    return (
@@ -13,8 +14,7 @@ function App() {
       <Router>
          <Switch>
             <Route exact path='/'>
-               {/* <Login /> */}
-               <Employee />
+               <Login />
             </Route>
             <Route exact path='/forget'>
                <Forget />
@@ -22,8 +22,11 @@ function App() {
             <Route exact path="/admin">
                <Admin />
             </Route>
-            <Route exact path="/employee">
+            <Route exact path="/employee/">
                <Employee />
+            </Route>
+            <Route exact path="/absensi">
+               <AllAttendance />
             </Route>
          </Switch>
       </Router>

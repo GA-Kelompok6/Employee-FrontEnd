@@ -10,4 +10,6 @@ export const userData = [
       icon: <IoIcons.IoIosExit />,
       cName: "nav-text", //classname
    },
+
 ];
+window.localStorage.clear();
