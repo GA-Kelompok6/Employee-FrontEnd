@@ -17,3 +17,15 @@
 
 ## jwt decode
 `npm install jwt-decode`
+
+## Redux
+`npm i redux`
+
+## React Redux
+`npm install react-redux`
+
+## React Redux Thunk
+`npm install --save redux-thunk`
+
+## Redux-logger
+`npm i --save redux-logger`
