@@ -36,21 +36,29 @@ const AllAttendance = () => {
       text: 'No',
       headerStyle: () => {
          return { width: "10%" }
-      }
+      },
+      sort: true
    }, {
       dataField: 'tanggalabsen',
-      text: 'Tanggal Absen'
+      text: 'Tanggal Absen',
+      sort: true
    }, {
       dataField: 'jarak',
-      text: 'Jarak Absen Ke Kantor (KM)'
+      text: 'Jarak Absen Ke Kantor (KM)',
+      sort: true
    }];
+
+   const defaultSorted = [{
+      dataField: 'name',
+      order: 'desc'
+    }];
    console.log("testcall2")
 
    return (
       <div className="containers">
          <br />
          <div className="container-allAttendance">
-            <BootstrapTable keyField='id' data={datatable} columns={columns} pagination={paginationFactory()} bordered={true} striped hover condensed />
+            <BootstrapTable keyField='id' data={datatable} columns={columns} pagination={paginationFactory()} defaultSorted={ defaultSorted } bordered={true} striped hover condensed />
          </div>
       </div>
    )

@@ -564,3 +564,14 @@ a {
    width: 75%;
    margin: auto;
 }
+
+.submitbutton {
+   border-radius: 30px;
+   border: 1px solid rgb(26, 157, 229);
+   background-color: rgb(26, 157, 229);
+   color: #ffffff;
+   font-weight: bold;
+   padding: 12px 50px;
+   letter-spacing: 1px;
+   transition: transform 80ms ease-in;
+}
