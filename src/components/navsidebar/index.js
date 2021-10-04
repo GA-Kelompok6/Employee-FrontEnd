@@ -16,19 +16,19 @@ function Navbar() {
    return (
       <>
          <IconContext.Provider value={{ color: "#fff" }}>
-            <div className="navbar">
-               <Link to="#" className="menu-bars">
+            <div className="navbar-home">
+               <Link to="#" className="menu-bars-home">
                   <FaIcons.FaBars onClick={showSidebar} />
                </Link>
-               <Link to="#" className="menu-bars" style={{ paddingRight: "30px" }}>
+               <Link to="#" className="menu-bars-home" style={{ paddingRight: "30px" }}>
                   <FaIcons.FaUser onClick={showUserbar} />
                </Link>
             </div>
 
-            <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-               <ul className="nav-menu-items" onClick={showSidebar}>
-                  <li className="navbar-toggle">
-                     <Link to="#" className="menu-bars">
+            <nav className={sidebar ? "nav-menu-home active" : "nav-menu-home"}>
+               <ul className="nav-menu-items-home" onClick={showSidebar}>
+                  <li className="navbar-toggle-home">
+                     <Link to="#" className="menu-bars-home">
                         <AiIcons.AiOutlineClose />
                      </Link>
                   </li>
@@ -37,7 +37,7 @@ function Navbar() {
                         <li key={index} className={item.cName}>
                            <Link to={item.path}>
                               {item.icon}
-                              <span className="spanSidebar">{item.title}</span>
+                              <span className="spanSidebarhome">{item.title}</span>
                            </Link>
                         </li>
                      );
@@ -45,21 +45,20 @@ function Navbar() {
                </ul>
             </nav>
 
-            <nav className={userbar ? "user-menu active" : "user-menu"}>
-               <ul className="nav-menu-items" onClick={showUserbar}>
-                  <li className="navbar-toggle">
-                     <Link to="#" className="menu-bars-right">
+            <nav className={userbar ? "user-menu-home active" : "user-menu-home"}>
+               <ul className="nav-menu-items-home" onClick={showUserbar}>
+                  <li className="navbar-toggle-home">
+                     <Link to="#" className="menu-bars-right-home">
                         <AiIcons.AiOutlineClose />
                      </Link>
                   </li>
                   {userData.map((item, index) => {
-                     // Caranya gimanaaaa???
-                     window.localStorage.clear();
+
                      return (
                         <li key={index} className={item.cName}>
                            <Link to={item.path}>
                               {item.icon}
-                              <span className="spanSidebar">{item.title}</span>
+                              <span className="spanSidebarhome">{item.title}</span>
                            </Link>
                         </li>
                      );

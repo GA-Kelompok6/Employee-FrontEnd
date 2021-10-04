@@ -99,42 +99,7 @@ export default function Employee() {
                   console.log(error);
                   setDone(true);
                })
-
-
-            // dispatch(loginActions(details, e, history));
-            // console.log(loginActions)
-            // if (details.error !== null) {
-            //    setError(details.error);
-            // }
-
-            // dispatch(Attendence(details, history));
-            // if (details.error !== null) {
-            //    setError(details.error);
-            // }
-
-
-
-            // console.log("ARARARARA")
-
-
-            // axios.post(linkAPI, loc)
-            //    .then(res => {
-            //       setDone(true)
-            //       Swal.fire({
-            //          icon: 'success',
-            //          title: 'Berhasil',
-            //          text: 'Anda Berhasil Absen'
-            //       })
-
-
-            //    })
-            //    .catch(error => {
-            //       console.log(error);
-            //       setDone(true);
-            //    })
          })
-
-
       } else {
          console.log('not avail');
       }
@@ -156,8 +121,7 @@ export default function Employee() {
             <>
                <Navbar />
                <Attendance Attendance={CheckLocation} />
-               {/* <ChangeOffice ChangeOffice={Change} /> */}
-               {/* <AllAttendance /> */}
+               <AllAttendance />
             </>
          )}
       </>

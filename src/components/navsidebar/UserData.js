@@ -8,7 +8,7 @@ export const userData = [
       title: "Log out",
       path: "/",
       icon: <IoIcons.IoIosExit />,
-      cName: "nav-text", //classname
+      cName: "nav-text-home", //classname
    },
 
 ];

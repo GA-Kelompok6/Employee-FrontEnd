@@ -49,7 +49,7 @@ export default function LoginPage({ Login, Register }) {
    console.log("state error", user);
 
    return (
-      <div>
+      <div className="body">
          <link
             rel="stylesheet"
             href="//use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -200,7 +200,7 @@ export default function LoginPage({ Login, Register }) {
                      }
                      value={Logindetails.password}
                   />
-                  <Link to="/forget">Forgot your password?</Link>
+                  <Link to="/forget?#">Forgot your password?</Link>
 
                   <button type="submit">Login</button>
                </form>

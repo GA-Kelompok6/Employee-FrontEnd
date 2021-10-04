@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import axios from "axios";
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 
 const AllAttendance = () => {
    require('./style.css')
+   // require('./bootstrap.min.css')
    const [datatable, setDatatable] = useState("");
 
    const LinkAPI = "https://613618d38700c50017ef53e3.mockapi.io/Absensi/";
 
-   axios.get(LinkAPI)
-      .then(response => {
-         console.log(response.data);
-         setDatatable(response.data);
-      })
-      .catch(error => {
-         console.log(error)
-      })
+   useEffect(() => {
+      axios.get(LinkAPI)
+         .then(response => {
+            console.log(response.data);
+            setDatatable(response.data);
+         }).catch(error => {
+            console.log(error)
+         })
+   }, [])
+
+   // axios.get(LinkAPI)
+   //    .then(response => {
+   //       console.log(response.data);
+   //       setDatatable(response.data);
+   //    })
+   //    .catch(error => {
+   //       console.log(error)
+   //    })
    console.log("testcalls")
 
    const columns = [{
@@ -35,9 +47,10 @@ const AllAttendance = () => {
    console.log("testcall2")
 
    return (
-      <div className="container">
-         <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", textAlign: "center" }}>
-            <BootstrapTable keyField='id' data={datatable} columns={columns} />
+      <div className="containers">
+         <br />
+         <div className="container-allAttendance">
+            <BootstrapTable keyField='id' data={datatable} columns={columns} pagination={paginationFactory()} bordered={true} striped hover condensed />
          </div>
       </div>
    )
