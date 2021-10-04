@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Attendance from './Attendance';
 import axios from "axios";
+import { Link, useHistory } from "react-router-dom";
 import geolib, { convertDistance } from 'geolib'
 import { getDistance } from 'geolib';
 import ChangeOffice from './ChangeOffice';
@@ -10,7 +11,16 @@ import Swal from "sweetalert2";
 import Navbar from '../navsidebar';
 import AllAttendance from './AllAttendance';
 
+import { useDispatch, useSelector } from "react-redux";
+import { Attendence } from "../../redux/Actions/user.actions";
+
+
 export default function Employee() {
+
+   const dispatch = useDispatch();
+   const history = useHistory();
+   const [error, setError] = useState(null);
+
 
    let [loading, setLoading] = useState(true);
    let [color, setColor] = useState("#23C8D4");
@@ -20,7 +30,7 @@ export default function Employee() {
    margin: 0 auto;
    border-color: red;
    `;
-   
+
 
 
    const linkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/add"
@@ -57,6 +67,13 @@ export default function Employee() {
 
    }
 
+   function mapStateToProps(state) {
+      const { tok } = state.auth;
+      return {
+         tok,
+      };
+   }
+
 
    function Location(details) {
 
@@ -66,21 +83,37 @@ export default function Employee() {
          navigator.geolocation.getCurrentPosition(postition => {
 
             const loc = { location: [postition.coords.latitude, postition.coords.longitude], distance: details };
-            axios.post(linkAPI, loc)
-               .then(res => {
-                  setDone(true)
-                  Swal.fire({
-                     icon: 'success',
-                     title: 'Berhasil',
-                     text: 'Anda Berhasil Absen'
-                  })
+            // dispatch(loginActions(details, e, history));
+            // console.log(loginActions)
+            // if (details.error !== null) {
+            //    setError(details.error);
+            // }
+
+            dispatch(Attendence(details, history));
+            // if (details.error !== null) {
+            //    setError(details.error);
+            // }
 
 
-               })
-               .catch(error => {
-                  console.log(error);
-                  setDone(true);
-               })
+
+            // console.log("ARARARARA")
+
+
+            // axios.post(linkAPI, loc)
+            //    .then(res => {
+            //       setDone(true)
+            //       Swal.fire({
+            //          icon: 'success',
+            //          title: 'Berhasil',
+            //          text: 'Anda Berhasil Absen'
+            //       })
+
+
+            //    })
+            //    .catch(error => {
+            //       console.log(error);
+            //       setDone(true);
+            //    })
          })
 
 
