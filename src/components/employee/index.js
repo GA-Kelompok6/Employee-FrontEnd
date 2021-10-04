@@ -67,13 +67,6 @@ export default function Employee() {
 
    }
 
-   function mapStateToProps(state) {
-      const { tok } = state.auth;
-      return {
-         tok,
-      };
-   }
-
 
    function Location(details) {
 
@@ -82,14 +75,39 @@ export default function Employee() {
          console.log(details)
          navigator.geolocation.getCurrentPosition(postition => {
 
-            const loc = { location: [postition.coords.latitude, postition.coords.longitude], distance: details };
+            const loc = { location: [postition.coords.latitude, postition.coords.longitude], distance: details, attendence: true };
+            console.log(localStorage)
+            // const token = JSON.parse(localStorage)
+
+            let config = {
+               headers: {
+                  'Authorization': 'Bearer ' + localStorage.token
+               }
+            }
+
+            axios.post(linkAPI, loc, config)
+               .then(res => {
+                  setDone(true)
+                  Swal.fire({
+                     icon: 'success',
+                     title: 'Berhasil',
+                     text: 'Anda Berhasil Absen'
+                  })
+
+               })
+               .catch(error => {
+                  console.log(error);
+                  setDone(true);
+               })
+
+
             // dispatch(loginActions(details, e, history));
             // console.log(loginActions)
             // if (details.error !== null) {
             //    setError(details.error);
             // }
 
-            dispatch(Attendence(details, history));
+            // dispatch(Attendence(details, history));
             // if (details.error !== null) {
             //    setError(details.error);
             // }
