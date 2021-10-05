@@ -3,16 +3,27 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import axios from "axios";
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import jwt_decode from "jwt-decode";
+
 
 const AllAttendance = () => {
    require('./style.css')
    // require('./bootstrap.min.css')
    const [datatable, setDatatable] = useState("");
 
-   const LinkAPI = "https://613618d38700c50017ef53e3.mockapi.io/Absensi/";
+   const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/";
 
    useEffect(() => {
-      axios.get(LinkAPI)
+      console.log(localStorage)
+      const user = jwt_decode(localStorage.token)
+      console.log(user.role)
+
+      let config = {
+         headers: {
+            'Authorization': 'Bearer ' + localStorage.token
+         }
+      }
+      axios.get(LinkAPI, config)
          .then(response => {
             console.log(response.data);
             setDatatable(response.data);
@@ -29,36 +40,37 @@ const AllAttendance = () => {
    //    .catch(error => {
    //       console.log(error)
    //    })
-   console.log("testcalls")
+   // console.log("testcalls")
 
-   const columns = [{
-      dataField: 'id',
-      text: 'No',
-      headerStyle: () => {
-         return { width: "10%" }
+   const columns = [
+      {
+         dataField: '_id',
+         text: 'No',
+         headerStyle: () => {
+            return { width: "10%" }
+         }
       },
-      sort: true
-   }, {
-      dataField: 'tanggalabsen',
-      text: 'Tanggal Absen',
-      sort: true
-   }, {
-      dataField: 'jarak',
-      text: 'Jarak Absen Ke Kantor (KM)',
-      sort: true
-   }];
+      {
+         dataField: 'createdAt',
+         text: 'Tanggal Absen'
+      }, {
+         dataField: 'distance',
+         text: 'Jarak Absen Ke Kantor (KM)'
+      }];
+
 
    const defaultSorted = [{
       dataField: 'name',
       order: 'desc'
-    }];
+   }];
+
    console.log("testcall2")
 
    return (
       <div className="containers">
          <br />
          <div className="container-allAttendance">
-            <BootstrapTable keyField='id' data={datatable} columns={columns} pagination={paginationFactory()} defaultSorted={ defaultSorted } bordered={true} striped hover condensed />
+            <BootstrapTable keyField='id' data={datatable} columns={columns} pagination={paginationFactory()} defaultSorted={defaultSorted} bordered={true} striped hover condensed />
          </div>
       </div>
    )

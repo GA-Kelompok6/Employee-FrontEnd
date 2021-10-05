@@ -74,9 +74,12 @@ export default function Employee() {
          console.log('avail');
          console.log(details)
          navigator.geolocation.getCurrentPosition(postition => {
+            console.log(postition.coords.latitude)
+            console.log(postition.coords.longitude)
 
-            const loc = { location: [postition.coords.latitude, postition.coords.longitude], distance: details, attendence: true };
-            console.log(localStorage)
+            const loc = { location: [postition.coords.latitude, postition.coords.longitude], distance: details, attendance: 1 };
+            console.log(localStorage.token)
+
             // const token = JSON.parse(localStorage)
 
             let config = {
@@ -93,7 +96,6 @@ export default function Employee() {
                      title: 'Berhasil',
                      text: 'Anda Berhasil Absen'
                   })
-
                })
                .catch(error => {
                   console.log(error);
