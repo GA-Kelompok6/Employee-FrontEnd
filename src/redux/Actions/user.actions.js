@@ -69,10 +69,11 @@ export const loginActions = (values, e, history) => {
             console.log("res", response.data);
             if (response.data !== undefined) {
                console.log("token ada");
-               localStorage.setItem("token", response.data);
-
+               
                dispatch(setLogin(response.data));
                history.push("/employee");
+               localStorage.setItem("token", response.data);
+
             }
          })
          .catch((error) => {
@@ -81,61 +82,3 @@ export const loginActions = (values, e, history) => {
          });
    };
 };
-
-export const Attendence = (values, e, history) => {
-   return (dispatch) => {
-      // e.preventDefault();
-
-      console.log("tes param", values);
-
-      return axios
-         .get(
-            "https://arcane-badlands-64583.herokuapp.com/home/login",
-         )
-         .then((response) => {
-            console.log("res", response.data);
-            if (response.data !== undefined) {
-               console.log("token ada");
-               localStorage.setItem("token", response.data);
-
-               dispatch(setLogin(response.data));
-               history.push("/employee");
-            }
-         })
-         .catch((error) => {
-            console.log(error);
-            dispatch(getError(error.response.data));
-         });
-   };
-}
-
-   // axios
-   //    .get(loginActions(), history.data)
-   //    .then((response) => {
-   //       console.log("res", response.data);
-   //       console.log("ARARARARARARA")
-
-   //    })
-
-   // console.log(loginActions(values, history))
-
-
-   // return axios
-   //    .catch(
-   //       "https://arcane-badlands-64583.herokuapp.com/home/login",
-   //       values
-   //    )
-   //    .then((response) => {
-   //       console.log("res", response.data);
-   // if (response.data !== undefined) {
-   //    console.log("token ada");
-   //    localStorage.setItem("token", response.data);
-
-   //    dispatch(setLogin(response.data));
-   //    history.push("/employee");
-   // }
-   // })
-   // .catch((error) => {
-   //    console.log(error);
-   //    dispatch(getError(error.response.data));
-   // });

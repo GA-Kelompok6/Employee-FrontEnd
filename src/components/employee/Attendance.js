@@ -50,11 +50,12 @@ export default function Attendance({ Attendance }) {
    return (
 
       <div>
-         <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", textAlign: "center" }}>
+         <div style={{ textAlign: "center" }}>
+            <br />
             <h3>Tanggal: {CurrentDate}</h3>
             <br />
             <form onSubmit={attendanceConfirmation}>
-               <button type="submit">Absen Hari Ini</button>
+               <button className="submitbutton" type="submit">Absen Hari Ini</button>
 
             </form>
             {/* <ClipLoader color={color} loading={loading} css={override} size={150} /> */}

@@ -67,13 +67,6 @@ export default function Employee() {
 
    }
 
-   function mapStateToProps(state) {
-      const { tok } = state.auth;
-      return {
-         tok,
-      };
-   }
-
 
    function Location(details) {
 
@@ -82,41 +75,31 @@ export default function Employee() {
          console.log(details)
          navigator.geolocation.getCurrentPosition(postition => {
 
-            const loc = { location: [postition.coords.latitude, postition.coords.longitude], distance: details };
-            // dispatch(loginActions(details, e, history));
-            // console.log(loginActions)
-            // if (details.error !== null) {
-            //    setError(details.error);
-            // }
+            const loc = { location: [postition.coords.latitude, postition.coords.longitude], distance: details, attendence: true };
+            console.log(localStorage)
+            // const token = JSON.parse(localStorage)
 
-            dispatch(Attendence(details, history));
-            // if (details.error !== null) {
-            //    setError(details.error);
-            // }
+            let config = {
+               headers: {
+                  'Authorization': 'Bearer ' + localStorage.token
+               }
+            }
 
+            axios.post(linkAPI, loc, config)
+               .then(res => {
+                  setDone(true)
+                  Swal.fire({
+                     icon: 'success',
+                     title: 'Berhasil',
+                     text: 'Anda Berhasil Absen'
+                  })
 
-
-            // console.log("ARARARARA")
-
-
-            // axios.post(linkAPI, loc)
-            //    .then(res => {
-            //       setDone(true)
-            //       Swal.fire({
-            //          icon: 'success',
-            //          title: 'Berhasil',
-            //          text: 'Anda Berhasil Absen'
-            //       })
-
-
-            //    })
-            //    .catch(error => {
-            //       console.log(error);
-            //       setDone(true);
-            //    })
+               })
+               .catch(error => {
+                  console.log(error);
+                  setDone(true);
+               })
          })
-
-
       } else {
          console.log('not avail');
       }
@@ -138,8 +121,7 @@ export default function Employee() {
             <>
                <Navbar />
                <Attendance Attendance={CheckLocation} />
-               {/* <ChangeOffice ChangeOffice={Change} /> */}
-               {/* <AllAttendance /> */}
+               <AllAttendance />
             </>
          )}
       </>
