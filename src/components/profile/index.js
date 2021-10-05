@@ -1,4 +1,3 @@
-import { decode } from "jsonwebtoken";
 import React from "react";
 import Navbar from "../navsidebar/index";
 import profileupdate from "./profile";
@@ -7,8 +6,9 @@ import jwt_decode from "jwt-decode";
 export default function Profile() {
   require("./style.css");
   const token = localStorage.getItem("token");
-  const user = jwt_decode(token)
-  profileupdate(user.sub, token)
+  const user = jwt_decode(token);
+  profileupdate(user.sub, token);
+
   return (
     <>
       <Navbar />
