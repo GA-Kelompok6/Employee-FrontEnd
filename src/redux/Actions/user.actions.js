@@ -95,7 +95,6 @@ export const loginActions = (values, e, history) => {
                dispatch(setLogin(response.data));
                history.push("/employee");
                localStorage.setItem("token", response.data);
-
             }
          })
          .catch((error) => {

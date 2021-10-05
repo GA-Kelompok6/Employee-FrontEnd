@@ -11,11 +11,17 @@ const AllAttendance = () => {
    // require('./bootstrap.min.css')
    const [datatable, setDatatable] = useState("");
 
-   const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/";
+
 
    useEffect(() => {
+      const user = jwt_decode(localStorage.token);
+
+      const idUser = user.sub;
+
+      const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser;
+
+
       console.log(localStorage)
-      const user = jwt_decode(localStorage.token)
       console.log(user.role)
 
       let config = {
@@ -44,7 +50,7 @@ const AllAttendance = () => {
 
    const columns = [
       {
-         dataField: '_id',
+         dataField: 'id',
          text: 'No',
          headerStyle: () => {
             return { width: "10%" }
