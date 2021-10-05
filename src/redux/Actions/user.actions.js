@@ -19,13 +19,6 @@ export const setLogin = (data) => {
    };
 };
 
-export const setAttendance = (data) => {
-   return {
-      type: ATTENDANCE,
-      payload: data,
-   };
-}
-
 export const getError = (data) => {
    return {
       type: GET_ERROR,
@@ -35,6 +28,34 @@ export const getError = (data) => {
 
 export const registerActions = (values, e, history) => (dispatch) => {
    e.preventDefault();
+
+   if (values.username.length < 3) {
+      alert("Username minimal 3 karakter");
+      return false;
+   }
+
+   if (values.name.length < 3) {
+      alert("Name minimal 3 karakter");
+      return false;
+   }
+
+
+   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+   if (!mailformat.test(values.email)) {
+      alert("Harap memasukkan email dengan benar");
+      return false;
+   }
+
+   if (values.password.length < 6) {
+      alert("Password minimal 6 karakter");
+      return false;
+   }
+
+   if (values.role === "") {
+      alert("Harap memilih role");
+      return false;
+   }
 
    console.log("tes param", values);
 
@@ -48,7 +69,8 @@ export const registerActions = (values, e, history) => (dispatch) => {
          localStorage.setItem("token", response.data);
 
          dispatch(setRegister);
-         history.push("/employee");
+         history.push("/");
+         alert("Pendaftaran berhasil");
       })
       .catch((error) => {
          console.log(error);
@@ -69,7 +91,7 @@ export const loginActions = (values, e, history) => {
             console.log("res", response.data);
             if (response.data !== undefined) {
                console.log("token ada");
-               
+
                dispatch(setLogin(response.data));
                history.push("/employee");
                localStorage.setItem("token", response.data);

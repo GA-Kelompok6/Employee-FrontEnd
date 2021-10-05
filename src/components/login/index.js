@@ -23,7 +23,7 @@ export default function Login() {
    // const setUser = useState({ name: "", email: "" });
    require("./style.css");
    // const jwt_decode =  require('jwt-decode')
-   
+
    // const Login = details => {
    //    // console.log(details);
 
@@ -45,32 +45,42 @@ export default function Login() {
    //          })
    // }
 
-   const SignUp = (details, e) => {
-      console.log(details);
+   // const SignUp = (details, e) => {
+   //    console.log(details);
+
+   //    if (details.username.length < 3) {
+   //       alert("Username minimal 3 karakter");
+   //       return false;
+   //    }
+
+   //    if (details.name.length < 3) {
+   //       alert("Name minimal 3 karakter");
+   //       return false;
+   //    }
 
 
-      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+   //    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-      if (!mailformat.test(details.email)) {
-         alert("Harap memasukkan email dengan benar");
-         return false;
-      }
+   //    if (!mailformat.test(details.email)) {
+   //       alert("Harap memasukkan email dengan benar");
+   //       return false;
+   //    }
 
-      if (details.password.length < 6) {
-         alert("Password minimal 6 karakter");
-         return false;
-      }
+   //    if (details.password.length < 6) {
+   //       alert("Password minimal 6 karakter");
+   //       return false;
+   //    }
 
-      if (details.role === "") {
-         alert("Harap memilih role");
-         return false;
-      }
+   //    if (details.role === "") {
+   //       alert("Harap memilih role");
+   //       return false;
+   //    }
 
-      dispatch(registerActions(details, e, history));
-      if (details.error !== null) {
-         setError(details.error);
-      }
-   };
+   //    dispatch(registerActions(details, e, history));
+   //    if (details.error !== null) {
+   //       setError(details.error);
+   //    }
+   // };
 
    return (
       <div>

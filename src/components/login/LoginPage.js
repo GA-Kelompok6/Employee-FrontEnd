@@ -137,16 +137,16 @@ export default function LoginPage({ Login, Register }) {
                      <input
                         type="radio"
                         name="role"
-                        id="admin"
-                        value="admin"
+                        id="Admin"
+                        value="Admin"
                      />
                      <label for="admin">Admin</label>
 
                      <input
                         type="radio"
                         name="role"
-                        id="user"
-                        value="user"
+                        id="User"
+                        value="User"
                      />
                      <label for="user">User</label>
                   </div>
