@@ -63,6 +63,7 @@ const AllAttendance = () => {
       dataField: 'name',
       order: 'desc'
    }];
+
    console.log("testcall2")
 
    return (

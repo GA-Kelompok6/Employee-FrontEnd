@@ -29,3 +29,6 @@
 
 ## Redux-logger
 `npm i --save redux-logger`
+
+## Geolib
+`npm i geolib`
