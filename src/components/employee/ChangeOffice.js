@@ -15,7 +15,6 @@ export default function ChangeOffice({ ChangeOffice }) {
          <form onSubmit={submitHandlerChange}>
             <input type="text" placeholder="Address" id="Address" required value={AddressDetails.address} onChange={e => SetAddressDetails({...AddressDetails, address: e.target.value})}/>
 
-
             <button type="submit"></button>
          </form>
       </div>
