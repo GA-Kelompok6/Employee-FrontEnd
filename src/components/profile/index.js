@@ -1,8 +1,10 @@
 import React from "react";
 import Navbar from "../navsidebar/index";
+import profileupdate from "./profile";
 
 export default function Profile() {
   require("./style.css");
+  profileupdate()
   return (
     <>
       <Navbar />
