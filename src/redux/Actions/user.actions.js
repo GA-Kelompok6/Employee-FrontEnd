@@ -71,7 +71,6 @@ export const registerActions = (values, e, history) => (dispatch) => {
          dispatch(setRegister);
          history.push("/");
          alert("Pendaftaran berhasil");
-         values = "";
       })
       .catch((error) => {
          console.log(error);
