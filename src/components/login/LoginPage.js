@@ -54,7 +54,7 @@ export default function LoginPage({ Login, Register }) {
             rel="stylesheet"
             href="//use.fontawesome.com/releases/v5.8.1/css/all.css"
          />
-         <div className="container containerforlogin" id="container">
+         <div className="containerforlogin container" id="container">
             {/* <!-- Main Start --> */}
             <div className="formContainer signUp">
                <form action="#" onSubmit={submitHandlerSignup}>
