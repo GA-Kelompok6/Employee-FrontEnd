@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const REGISTER = "REGISTER";
 export const LOGIN = "LOGIN";
@@ -30,12 +31,22 @@ export const registerActions = (values, e, history) => (dispatch) => {
    e.preventDefault();
 
    if (values.username.length < 3) {
-      alert("Username minimal 3 karakter");
+      // alert("Username minimal 3 karakter");
+      Swal.fire({
+         icon: 'error',
+         title: 'Registrasi Gagal',
+         text: 'Username Minimal 3 Karakter'
+      })
       return false;
    }
 
    if (values.name.length < 3) {
-      alert("Name minimal 3 karakter");
+      // alert("Name minimal 3 karakter");
+      Swal.fire({
+         icon: 'error',
+         title: 'Registrasi Gagal',
+         text: 'Nama Minimal 3 Karakter'
+      })
       return false;
    }
 
@@ -43,17 +54,32 @@ export const registerActions = (values, e, history) => (dispatch) => {
    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
    if (!mailformat.test(values.email)) {
-      alert("Harap memasukkan email dengan benar");
+      // alert("Harap memasukkan email dengan benar");
+      Swal.fire({
+         icon: 'error',
+         title: 'Registrasi Gagal',
+         text: 'Harap Memasukkan Email Dengan Benar'
+      })
       return false;
    }
 
    if (values.password.length < 6) {
-      alert("Password minimal 6 karakter");
+      // alert("Password minimal 6 karakter");
+      Swal.fire({
+         icon: 'error',
+         title: 'Registrasi Gagal',
+         text: 'Password Minimal 6 Karakter'
+      })
       return false;
    }
 
    if (values.role === "") {
-      alert("Harap memilih role");
+      // alert("Harap memilih role");
+      Swal.fire({
+         icon: 'error',
+         title: 'Registrasi Gagal',
+         text: 'Harap Memilih Role'
+      })
       return false;
    }
 
@@ -70,10 +96,20 @@ export const registerActions = (values, e, history) => (dispatch) => {
 
          dispatch(setRegister);
          history.push("/");
-         alert("Pendaftaran berhasil");
+         Swal.fire({
+            icon: 'success',
+            title: 'Registrasi Berhasil',
+            text: 'Silahkan Login Lagi'
+         })
+         // alert("Pendaftaran berhasil");
       })
       .catch((error) => {
          console.log(error);
+         Swal.fire({
+            icon: 'error',
+            title: 'Registrasi Gagal',
+            text: 'Mohon Periksa Atau Coba Lagi Nanti'
+         })
       });
 };
 
@@ -93,13 +129,25 @@ export const loginActions = (values, e, history) => {
                console.log("token ada");
 
                dispatch(setLogin(response.data));
-               history.push("/employee");
+               Swal.fire({
+                  icon: 'success',
+                  title: 'Login Berhasil',
+                  text: 'Selamat Datang'
+               }).then(() => {
+                  history.push("/employee");
+               })
+               
                localStorage.setItem("token", response.data);
             }
          })
          .catch((error) => {
             console.log(error);
             dispatch(getError(error.response.data));
+            Swal.fire({
+               icon: 'error',
+               title: 'Login Gagal',
+               text: 'Mohon Periksa Atau Coba Lagi Nanti'
+            })
          });
    };
 };

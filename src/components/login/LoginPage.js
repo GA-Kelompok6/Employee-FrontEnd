@@ -58,7 +58,7 @@ export default function LoginPage({ Login, Register }) {
             {/* <!-- Main Start --> */}
             <div className="formContainer signUp">
                <form action="#" onSubmit={submitHandlerSignup}>
-                  <h1>Sign Up</h1>
+                  <h1 style={{marginBottom:"0px"}}>Sign Up</h1>
                   <div className="socialMedia">
                      <a href="/" className="social">
                         <i className="fab fa-facebook-f"></i>

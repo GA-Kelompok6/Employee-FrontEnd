@@ -3,6 +3,7 @@ import Navbar from "../navsidebar/index";
 import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function Profile() {
   require("./style.css");
@@ -59,9 +60,19 @@ export default function Profile() {
       .put(linkAPIUpdateProfile, gabunganedit, config)
       .then((Response) => {
         console.log(Response);
+        Swal.fire({
+          icon: 'success',
+          title: 'Update Profile Berhasil',
+          text: 'Profile Berhasil Di Update'
+       })
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Update Profile Gagal',
+          text: 'Profile Gagal Di Update'
+       })
       });
   };
 
