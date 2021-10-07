@@ -21,7 +21,8 @@ const TableUser = () => {
     axios
       .get(LinkAPI, config)
       .then((response) => {
-        setDatatable(response.data);
+        const convertData = Object.values(response.data)
+        setDatatable(convertData);
       })
       .catch((error) => {
         console.log(error);
@@ -30,7 +31,7 @@ const TableUser = () => {
 
   const columns = [
     {
-      dataField: "_id",
+      dataField: "id",
       text: "No",
       headerStyle: () => {
         return { width: "10%" };

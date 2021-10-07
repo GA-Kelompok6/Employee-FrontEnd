@@ -30,7 +30,8 @@ const ForgetPasswordComponent = () => {
                   <option value="What is the name of your favorite pet?">What Is The Name Of Your Favorite Pet?</option>
                </select>
                <input type="text" placeholder="Answer The Question For Recovery" id="answer" />
-               <input type="password" placeholder="New Password" id="pass" />
+               <input type="password" placeholder="New Password" id="pass1" />
+               <input type="password" placeholder="Retype New Password" id="pass2" />
                <input hidden type="text" id="livelocationlat" value={lat} />
                <input hidden type="text" id="livelocationlong" value={lng} />
                <button type="submit" onClick={Forget2}>Reset Password</button>

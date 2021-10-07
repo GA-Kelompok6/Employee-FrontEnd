@@ -18,7 +18,8 @@ const forget = () => {
 function Forget() {
    if (Forget) {
       let emailInput = document.getElementById("email").value;
-      let passInput = document.getElementById("pass").value;
+      let passInput1 = document.getElementById("pass1").value;
+      let passInput2 = document.getElementById("pass2").value;
       let questionInput = document.getElementById("question").value;
       let answerInput = document.getElementById("answer").value;
       let liveLat = document.getElementById("livelocationlat").value;
@@ -27,13 +28,13 @@ function Forget() {
 
       function ClearText() {
          document.getElementById("email").value = "";
-         document.getElementById("pass").value = "";
+         // document.getElementById("pass").value = "";
          document.getElementById("answer").value = "";
          document.getElementById("question").value = "Choose Recovery Question";
       }
 
       axios.get(
-         "https://614d6cc4e3cf1f001712d113.mockapi.io/Users"
+         "https://arcane-badlands-64583.herokuapp.com/user/forget/"
       )
          .then((response) => {
             const myData = response.data;
@@ -41,8 +42,8 @@ function Forget() {
 
             if (user.length > 0) {
                if (user[0].email === emailInput) {
-                  if (user[0].answerrecovery === answerInput && user[0].questionrecovery === questionInput) {
-                     if (passInput === "" || passInput === null) {
+                  if (user[0].answer === answerInput && user[0].question === questionInput) {
+                     if (passInput1 === "" || passInput1 === null) {
                         //alert("Harap memasukkan password");
                         Swal.fire({
                            icon: 'error',
@@ -51,19 +52,29 @@ function Forget() {
                         })
                         return false;
                      } else {
-                        if (passInput.length < 6) {
+                        if (passInput1.length < 6) {
                            //alert("Password minimal 6 karakter");
                            Swal.fire({
                               icon: 'error',
                               title: 'Oops...',
                               text: 'Password Minimal 6 Karakter'
                            })
-                           document.getElementById("pass").value = "";
+                           // document.getElementById("pass").value = "";
                            return false;
                         }
                      }
-                     const getUserID = user[0].id;
-                     const changePassword = { pass: passInput, location: [liveLat, liveLong] };
+                     if (passInput2 === "" || passInput2 === null){
+                        //alert("Harap memasukkan password");
+                        Swal.fire({
+                           icon: 'error',
+                           title: 'Oops...',
+                           text: 'Harap Memasukkan Password'
+                        })
+                        return false;
+                     } else {
+                        if (passInput1 === passInput2){
+                           const getUserID = user[0].id;
+                     const changePassword = { pass: passInput2 };
 
                      axios.put(
                         "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin/" +
@@ -71,7 +82,7 @@ function Forget() {
                         changePassword
                      );
 
-                     user[0].password = passInput;
+                     user[0].password = passInput2;
                      //alert("Password Berhasil Diganti, Silahkan Login Kembali");
                      Swal.fire({
                         title: 'Berhasil Ganti',
@@ -86,6 +97,15 @@ function Forget() {
 
                      console.clear();
                      //window.location.href ="/"
+                        } else {
+                           Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: 'Password Harus Sama'
+                           })
+                        }
+                     }
+                     
                   } else {
                      //alert("Email Tidak Ditemukan Atau Jawaban Recovery Salah");
                      Swal.fire({

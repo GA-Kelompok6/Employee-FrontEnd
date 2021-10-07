@@ -33,7 +33,7 @@ export default function Employee() {
          // const kantor_coords = { latitude: -7.376397, longitude: 110.440711 }
 
          // 1000 buat akurasi
-         let distance = getDistance(my_coords, kantor_coords, 1)
+         let distance = getDistance(my_coords, kantor_coords, 1000)
 
          // Convert to KM
          let convert = convertDistance(distance, 'km');
@@ -82,6 +82,11 @@ export default function Employee() {
                })
                .catch(error => {
                   console.log(error);
+                  Swal.fire({
+                     icon: 'error',
+                     title: 'Absen Gagal',
+                     text: 'Silahkan Coba Lagi / Hubungi Ke Dukungan'
+                  })
                   setDone(true);
                })
          })

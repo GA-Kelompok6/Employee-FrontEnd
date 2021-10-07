@@ -18,7 +18,8 @@ const AllAttendance = () => {
 
       const idUser = user.sub;
 
-      const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser;
+      // const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser;
+      const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/"; //Admin
 
 
       // console.log(localStorage)
@@ -47,7 +48,7 @@ const AllAttendance = () => {
          }
       },
       {
-         dataField: 'createdAt',
+         dataField: 'Date',
          text: 'Tanggal Absen'
       }, {
          dataField: 'distance',
