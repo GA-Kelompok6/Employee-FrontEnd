@@ -6,14 +6,16 @@ import * as IoIcons from "react-icons/io";
 export const SidebarData = [
   {
     title: "Dashboard",
-    path: "/employee",
+
+    path: "/",
+    role: "Admin",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text", //classname
   },
-
   {
     title: "Absensi Karyawan",
     path: "/absensi",
+    role: "User",
     icon: <IoIcons.IoIosPaper />,
     cName: "nav-text", //classname
   },
@@ -21,6 +23,7 @@ export const SidebarData = [
   {
     title: "User",
     path: "/user",
+    role: "Admin",
     icon: <IoIcons.IoMdPeople />,
     cName: "nav-text", //classname
   },

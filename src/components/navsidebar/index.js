@@ -4,8 +4,10 @@ import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import { userData } from "./UserData";
+import jwt_decode from "jwt-decode";
 // import "./Navbar.css";
 import { IconContext } from "react-icons";
+
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -13,6 +15,12 @@ function Navbar() {
   const showSidebar = () => setSidebar(!sidebar);
   const showUserbar = () => setUserbar(!userbar);
   require("./Navbar.css");
+
+  var token = localStorage.getItem("token");
+  var user = jwt_decode(token)
+  var role = user.role;
+  console.log(role)
+  
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -33,6 +41,8 @@ function Navbar() {
               </Link>
             </li>
             {SidebarData.map((item, index) => {
+              if(item.role == role){
+                 console.log("masuikkk "+item.role)
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
@@ -40,8 +50,11 @@ function Navbar() {
                     <span className="spanSidebar">{item.title}</span>
                   </Link>
                 </li>
-              );
-            })}
+              )
+            };
+            }
+            )
+         }
           </ul>
         </nav>
 
