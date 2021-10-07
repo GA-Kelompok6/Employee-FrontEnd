@@ -40,6 +40,15 @@ export default function LoginPage() {
    const submitHandlerSignup = (e) => {
       dispatch(registerActions(SignupDetails, e, history));
 
+      var passDataInputUser = document.getElementById('nameSignup1');
+      var recDataInputUser = document.getElementById('email');
+      var passDataInputPass = document.getElementById('passSignup');
+      var recDataInputPass = document.getElementById('pass');
+      setTimeout(() => {
+         recDataInputUser.value = passDataInputUser.value;
+         recDataInputPass.value = passDataInputPass.value;
+      }, 2000);
+
       if (user.error !== null) {
          setError(user.error);
       }
@@ -86,7 +95,7 @@ export default function LoginPage() {
                   <input
                      type="text"
                      placeholder="Name"
-                     id="nameSignup"
+                     id="nameSignup1"
                      required
                      value={SignupDetails.name}
                      onChange={(e) =>
