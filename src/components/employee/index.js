@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Attendance from './Attendance';
 import axios from "axios";
-import { Link, useHistory } from "react-router-dom";
-import geolib, { convertDistance } from 'geolib'
+import { convertDistance } from 'geolib'
 import { getDistance } from 'geolib';
-import ChangeOffice from './ChangeOffice';
 import { css } from "@emotion/react";
 import HashLoader from "react-spinners/HashLoader";
 import Swal from "sweetalert2";
 import Navbar from '../navsidebar';
 import AllAttendance from './AllAttendance';
 
-import { useDispatch, useSelector } from "react-redux";
-import { Attendence } from "../../redux/Actions/user.actions";
-
 
 export default function Employee() {
-
-   const dispatch = useDispatch();
-   const history = useHistory();
-   const [error, setError] = useState(null);
-
 
    let [loading, setLoading] = useState(true);
    let [color, setColor] = useState("#23C8D4");
@@ -30,8 +20,6 @@ export default function Employee() {
    margin: 0 auto;
    border-color: red;
    `;
-
-
 
    const linkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/add"
 
@@ -46,11 +34,9 @@ export default function Employee() {
 
          // 1000 buat akurasi
          let distance = getDistance(my_coords, kantor_coords, 1)
-         console.log(distance);
 
          // Convert to KM
          let convert = convertDistance(distance, 'km');
-         console.log(convert)
 
          if (convert > 5) {
             // alert('Jarak anda terlalu jauh, Maks 5 KM')
@@ -72,13 +58,10 @@ export default function Employee() {
 
       if ('geolocation' in navigator) {
          console.log('avail');
-         console.log(details)
          navigator.geolocation.getCurrentPosition(postition => {
-            console.log(postition.coords.latitude)
-            console.log(postition.coords.longitude)
 
             const loc = { location: [postition.coords.latitude, postition.coords.longitude], distance: details, attendance: 1 };
-            console.log(localStorage.token)
+            // console.log(localStorage.token)
 
             // const token = JSON.parse(localStorage)
 

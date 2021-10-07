@@ -21,8 +21,8 @@ const AllAttendance = () => {
       const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser;
 
 
-      console.log(localStorage)
-      console.log(user.role)
+      // console.log(localStorage)
+      // console.log(user.role)
 
       let config = {
          headers: {
@@ -31,22 +31,12 @@ const AllAttendance = () => {
       }
       axios.get(LinkAPI, config)
          .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             setDatatable(response.data);
          }).catch(error => {
             console.log(error)
          })
    }, [])
-
-   // axios.get(LinkAPI)
-   //    .then(response => {
-   //       console.log(response.data);
-   //       setDatatable(response.data);
-   //    })
-   //    .catch(error => {
-   //       console.log(error)
-   //    })
-   // console.log("testcalls")
 
    const columns = [
       {
@@ -70,7 +60,7 @@ const AllAttendance = () => {
       order: 'desc'
    }];
 
-   console.log("testcall2")
+   // console.log("testcall2")
 
    return (
       <div className="containers">

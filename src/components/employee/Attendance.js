@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import ClipLoader from "react-spinners/ClipLoader";
 import Swal from 'sweetalert2'
 
 export default function Attendance({ Attendance }) {
@@ -56,9 +55,7 @@ export default function Attendance({ Attendance }) {
             <br />
             <form onSubmit={attendanceConfirmation}>
                <button className="submitbutton" type="submit">Absen Hari Ini</button>
-
             </form>
-            {/* <ClipLoader color={color} loading={loading} css={override} size={150} /> */}
          </div>
       </div>
    )
