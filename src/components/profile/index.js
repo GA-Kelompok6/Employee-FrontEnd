@@ -35,7 +35,7 @@ export default function Profile() {
             console.log(err);
          });
    };
-   // const data = profileupdate(user.sub, token);
+   const data = profileupdate(user.sub, token);
 
    const savedata = (e, userId = user.sub) => {
       e.preventDefault();
