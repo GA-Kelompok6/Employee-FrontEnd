@@ -1,12 +1,12 @@
-import React from "react";
-import Navbar from "../navsidebar/index";
+import React from 'react'
 import TableUser from "./TableUser";
+import Navbar from '../navsidebar';
 
-export default function ListUser() {
-  return (
-    <>
-      <Navbar />
-      <TableUser />
-    </>
-  );
+export default function index() {
+   return (
+      <div>
+         <Navbar />
+         <TableUser />
+      </div>
+   )
 }
