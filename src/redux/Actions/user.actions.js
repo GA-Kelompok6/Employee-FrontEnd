@@ -108,7 +108,7 @@ export const registerActions = (values, e, history) => (dispatch) => {
          Swal.fire({
             icon: 'error',
             title: 'Registrasi Gagal',
-            text: 'Mohon Periksa Atau Coba Lagi Nanti'
+            text: error.response.data
          })
       });
 };
@@ -146,7 +146,7 @@ export const loginActions = (values, e, history) => {
             Swal.fire({
                icon: 'error',
                title: 'Login Gagal',
-               text: 'Mohon Periksa Atau Coba Lagi Nanti'
+               text: error.response.data
             })
          });
    };

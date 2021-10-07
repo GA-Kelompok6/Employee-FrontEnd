@@ -29,6 +29,14 @@
   background-color: rgba(252, 252, 252, 1);
 }
 
+.child-container > select {
+  width: 80%;
+  border-radius: 10px;
+  border: 1px solid rgba(144, 144, 144, 1);
+  height: 40px;
+  background-color: rgba(252, 252, 252, 1);
+}
+
 .radio-container {
   width: 80%;
   display: flex;

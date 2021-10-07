@@ -69,6 +69,25 @@ function Forget() {
                      const changePassword = { pass: passInput, location: [liveLat, liveLong] };
                      console.log(getUserID, changePassword);
 
+                     axios.put(
+                        "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin/" +
+                        getUserID,
+                        changePassword
+                     );
+
+                     user[0].password = passInput;
+                     //alert("Password Berhasil Diganti, Silahkan Login Kembali");
+                     Swal.fire({
+                        title: 'Berhasil Ganti',
+                        text: 'Password Berhasil Diganti, Silahkan Login Kembali',
+                        icon: 'success',
+                        timer: 2000
+                     })
+                        .then(ClearText())
+                        .then(function () {
+                           window.location = "/";
+                        });
+
                      console.clear();
                      //window.location.href ="/"
                   } else {

@@ -43,10 +43,12 @@ export default function Profile() {
     const inputName = document.getElementById("name-text").value;
     const inputEmail = document.getElementById("email-text").value;
     const inputPassword = document.getElementById("password-text").value;
+    const inputQuestion = document.getElementById("question-text").value;
+    const inputAnswer = document.getElementById("answer-text").value;
 
-    console.log(inputUsername, inputName, inputEmail);
+    console.log(inputUsername, inputName, inputEmail, inputQuestion, inputAnswer);
 
-    const gabunganedit = { username: inputUsername, password: inputPassword, name: inputName, email: inputEmail, role: role };
+    const gabunganedit = { username: inputUsername, password: inputPassword, name: inputName, email: inputEmail, role: role, questionrecovery: inputQuestion, answerrecovery: inputAnswer };
     console.log(gabunganedit, userId);
 
     const linkAPIUpdateProfile = `https://arcane-badlands-64583.herokuapp.com/users/update/` + userId;
@@ -95,6 +97,20 @@ export default function Profile() {
         <div className="child-container">
           <h3 className="text-child">Email</h3>
           <input className="email-input" defaultValue={email} id="email-text" />
+        </div>
+        <div className="child-container">
+          <h3 className="text-child">Question Recovery</h3>
+          <select className="question-input" type="select" placeholder="Choose Recovery Question" id="question-text">
+            <option disabled selected>Choose Recovery Question</option>
+            <option value="What Is Your Hobby?">What Is Your Hobby?</option>
+            <option value="What Is Your Dream Job?">What Is Your Dream Job?</option>
+            <option value="What Is The First Name Of Your Best Friend In High School?">What Is The First Name Of Your Best Friend In High School?</option>
+            <option value="What is the name of your favorite pet?">What Is The Name Of Your Favorite Pet?</option>
+          </select>
+        </div>
+        <div className="child-container">
+          <h3 className="text-child">Answer Recovery</h3>
+          <input className="answer-input" id="answer-text" />
         </div>
         <div className="child-container">
           <div className="text-container">
