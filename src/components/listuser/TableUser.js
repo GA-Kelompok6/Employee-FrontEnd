@@ -48,7 +48,7 @@ const TableUser = () => {
 
   const columns = [
     {
-      dataField: "id",
+      dataField: "_id",
       text: "No",
       headerStyle: () => {
         return { width: "10%" };
