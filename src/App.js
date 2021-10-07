@@ -108,9 +108,9 @@ function App() {
         <Route exact path="/employee">
           {tokenHilangEmployee}
         </Route>
-        <Route exact path="/absensi">
+        {/* <Route exact path="/absensi">
           {tokenHilangAbsensi}
-        </Route>
+        </Route> */}
         <Route exact path="/profile">
           {tokenHilangProfile}
         </Route>

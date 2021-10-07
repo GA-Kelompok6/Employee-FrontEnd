@@ -13,7 +13,7 @@ export const SidebarData = [
   },
   {
     title: "Absensi Karyawan",
-    path: "/absensi",
+    path: "/employee",
     role: "User",
     icon: <IoIcons.IoIosPaper />,
     cName: "nav-text", //classname
