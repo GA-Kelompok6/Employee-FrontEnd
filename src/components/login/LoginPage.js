@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import mainLogo from "../src/logo.png";
 import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
 // import './style.css';
 
 import { useDispatch, useSelector } from "react-redux";
 import { loginActions, registerActions } from "../../redux/Actions/user.actions";
 
-export default function LoginPage({ Login, Register }) {
+export default function LoginPage() {
    require("./style.css");
 
    const dispatch = useDispatch();

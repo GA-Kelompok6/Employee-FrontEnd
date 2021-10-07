@@ -19,7 +19,7 @@ function Navbar() {
   var token = localStorage.getItem("token");
   var user = jwt_decode(token)
   var role = user.role;
-  console.log(role)
+//   console.log(role)
   
   return (
     <>
@@ -42,7 +42,7 @@ function Navbar() {
             </li>
             {SidebarData.map((item, index) => {
               if(item.role == role){
-                 console.log("masuikkk "+item.role)
+               //   console.log("masuikkk "+item.role)
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>

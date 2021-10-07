@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import mainLogo from '../src/logo.png';
-// import axios from 'axios'
-// import Swal from 'sweetalert2'
 import { Forget2 } from './index'
 
 const ForgetPasswordComponent = () => {

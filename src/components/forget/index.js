@@ -2,7 +2,6 @@ import React from 'react'
 import ForgetPassword from './ForgetPage';
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import { convertDistance, getDistance } from 'geolib';
 export const Forget2 = () => {
    Forget()
 }
@@ -37,11 +36,9 @@ function Forget() {
          "https://614d6cc4e3cf1f001712d113.mockapi.io/Users"
       )
          .then((response) => {
-            console.log(response.data);
             const myData = response.data;
             let user = myData.filter((item) => item.email === emailInput);
 
-            console.log(user);
             if (user.length > 0) {
                if (user[0].email === emailInput) {
                   if (user[0].answerrecovery === answerInput && user[0].questionrecovery === questionInput) {
@@ -67,7 +64,6 @@ function Forget() {
                      }
                      const getUserID = user[0].id;
                      const changePassword = { pass: passInput, location: [liveLat, liveLong] };
-                     console.log(getUserID, changePassword);
 
                      axios.put(
                         "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin/" +
