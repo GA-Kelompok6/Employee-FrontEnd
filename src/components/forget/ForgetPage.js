@@ -16,9 +16,10 @@ const ForgetPasswordComponent = () => {
    })
 
    return (
+   <div className="body">
       <div className="containerForget">
          <div className="formContainer-Forget">
-            <form action="#" onsubmit="return false">
+            <form className="formforget" action="#" onsubmit="return false">
                <img src={mainLogo} alt="" />
                <h1>Forget Password</h1>
                Type your email and new password here!
@@ -39,6 +40,7 @@ const ForgetPasswordComponent = () => {
             </form>
          </div>
       </div>
+   </div>
    )
 }
 

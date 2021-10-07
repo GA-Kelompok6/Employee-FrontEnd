@@ -8,8 +8,90 @@ import Attendence from "./components/employee";
 import ChangeOffice from "./components/employee/ChangeOffice";
 import AllAttendance from "./components/employee/AllAttendance";
 import Profile from "./components/profile";
+import Swal from "sweetalert2";
+import ListUser from "./components/listuser";
 
 function App() {
+  //TokenEmployee
+  const tokenHilangEmployee = () => {
+    if (localStorage.getItem("token") == null) {
+      Swal.fire({
+        icon: "error",
+        title: "Token Hilang/Token Tidak Ada",
+        text: "Silahkan Login Kembali",
+        timer: 5000,
+      }).then(() => {
+        window.location.href = "/";
+      });
+    } else {
+      return <Employee />;
+    }
+  };
+
+  //TokenAdmin
+  const tokenHilangAdmin = () => {
+    if (localStorage.getItem("token") == null) {
+      Swal.fire({
+        icon: "error",
+        title: "Token Hilang/Token Tidak Ada",
+        text: "Silahkan Login Kembali",
+        timer: 5000,
+      }).then(() => {
+        window.location.href = "/";
+      });
+    } else {
+      return <Admin />;
+    }
+  };
+
+  //TokenAbsensi
+  const tokenHilangAbsensi = () => {
+    if (localStorage.getItem("token") == null) {
+      Swal.fire({
+        icon: "error",
+        title: "Token Hilang/Token Tidak Ada",
+        text: "Silahkan Login Kembali",
+        timer: 5000,
+      }).then(() => {
+        window.location.href = "/";
+      });
+    } else {
+      return <AllAttendance />;
+    }
+  };
+
+  //TokenProfile
+  const tokenHilangProfile = () => {
+    if (localStorage.getItem("token") == null) {
+      Swal.fire({
+        icon: "error",
+        title: "Token Hilang/Token Tidak Ada",
+        text: "Silahkan Login Kembali",
+        timer: 5000,
+      }).then(() => {
+        window.location.href = "/";
+      });
+    } else {
+      return <Profile />;
+    }
+  };
+
+  //TokenHilangUser
+  const tokenHilangUser = () => {
+    if (localStorage.getItem("token") == null) {
+      Swal.fire({
+        icon: "error",
+        title: "Token Hilang/Token Tidak Ada",
+        text: "Silahkan Login Kembali",
+        timer: 5000,
+      }).then(() => {
+        window.location.href = "/";
+      });
+    } else {
+      return <ListUser />;
+    }
+  };
+
   return (
     // <h1>H</h1>
     <Router>
@@ -21,16 +103,19 @@ function App() {
           <Forget />
         </Route>
         <Route exact path="/admin">
-          <Admin />
+          {tokenHilangAdmin}
         </Route>
         <Route exact path="/employee">
-          <Employee />
+          {tokenHilangEmployee}
         </Route>
         <Route exact path="/absensi">
-          <AllAttendance />
+          {tokenHilangAbsensi}
         </Route>
         <Route exact path="/profile">
-          <Profile />
+          {tokenHilangProfile}
+        </Route>
+        <Route exact path="/user">
+          {tokenHilangUser}
         </Route>
       </Switch>
     </Router>

@@ -54,11 +54,11 @@ export default function LoginPage({ Login, Register }) {
             rel="stylesheet"
             href="//use.fontawesome.com/releases/v5.8.1/css/all.css"
          />
-         <div className="container" id="container">
+         <div className="containerforlogin container" id="container">
             {/* <!-- Main Start --> */}
             <div className="formContainer signUp">
                <form action="#" onSubmit={submitHandlerSignup}>
-                  <h1>Sign Up</h1>
+                  <h1 style={{marginBottom:"0px"}}>Sign Up</h1>
                   <div className="socialMedia">
                      <a href="/" className="social">
                         <i className="fab fa-facebook-f"></i>
