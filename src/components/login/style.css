@@ -169,7 +169,7 @@ input {
 }
 
 .socialMedia {
-   margin: 20px 0;
+   margin: 10px 0 !important;
 }
 
 .socialMedia a {
