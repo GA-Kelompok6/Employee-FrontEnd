@@ -34,7 +34,7 @@ function Forget() {
       }
 
       axios.get(
-         "https://arcane-badlands-64583.herokuapp.com/user/forget/"
+         "https://arcane-badlands-64583.herokuapp.com/forget/forget/"
       )
          .then((response) => {
             const myData = response.data;
@@ -59,7 +59,8 @@ function Forget() {
                               title: 'Oops...',
                               text: 'Password Minimal 6 Karakter'
                            })
-                           // document.getElementById("pass").value = "";
+                           document.getElementById("pass1").value = "";
+                           document.getElementById("pass2").value = "";
                            return false;
                         }
                      }
@@ -73,30 +74,31 @@ function Forget() {
                         return false;
                      } else {
                         if (passInput1 === passInput2){
-                           const getUserID = user[0].id;
-                     const changePassword = { pass: passInput2 };
+                           const getUserID = user[0]._id;
+                           const changePassword = { password: passInput2 };
+                           console.log(getUserID)
 
-                     axios.put(
-                        "https://613618d38700c50017ef53e3.mockapi.io/UserAdmin/" +
-                        getUserID,
-                        changePassword
-                     );
+                           axios.put(
+                              "https://arcane-badlands-64583.herokuapp.com/forget/update/" +
+                              getUserID,
+                              changePassword
+                           );
 
-                     user[0].password = passInput2;
-                     //alert("Password Berhasil Diganti, Silahkan Login Kembali");
-                     Swal.fire({
-                        title: 'Berhasil Ganti',
-                        text: 'Password Berhasil Diganti, Silahkan Login Kembali',
-                        icon: 'success',
-                        timer: 2000
-                     })
-                        .then(ClearText())
-                        .then(function () {
-                           window.location = "/";
-                        });
+                           user[0].password = passInput2;
+                           //alert("Password Berhasil Diganti, Silahkan Login Kembali");
+                           Swal.fire({
+                              title: 'Berhasil Ganti',
+                              text: 'Password Berhasil Diganti, Silahkan Login Kembali',
+                              icon: 'success',
+                              timer: 2000
+                           })
+                              .then(ClearText())
+                              .then(function () {
+                                 window.location = "/";
+                              });
 
-                     console.clear();
-                     //window.location.href ="/"
+                           console.clear();
+                           //window.location.href ="/"
                         } else {
                            Swal.fire({
                               icon: 'error',
