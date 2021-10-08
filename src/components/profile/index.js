@@ -11,6 +11,8 @@ export default function Profile() {
    const [name, setName] = useState("");
    const [email, setEmail] = useState("");
    const [role, setRole] = useState("");
+   const [question, setQuestion] = useState("");
+   const [answer, setAnswer] = useState("");
 
    const token = localStorage.getItem("token");
 
@@ -29,6 +31,8 @@ export default function Profile() {
             setUsername(res.data._doc.username);
             setName(res.data._doc.name);
             setEmail(res.data._doc.email);
+            setQuestion(res.data._doc.question);
+            setAnswer(res.data._doc.answer);
             setRole(res.data._doc.role);
          })
          .catch((err) => {
@@ -100,7 +104,7 @@ export default function Profile() {
             </div>
             <div className="child-container">
                <h3 className="text-child">Question Recovery</h3>
-               <select className="question-input" type="select" placeholder="Choose Recovery Question" id="question-text">
+               <select className="question-input" type="select" defaultValue={question} placeholder="Choose Recovery Question" id="question-text">
                   <option disabled selected>Choose Recovery Question</option>
                   <option value="What Is Your Hobby?">What Is Your Hobby?</option>
                   <option value="What Is Your Dream Job?">What Is Your Dream Job?</option>
@@ -110,7 +114,7 @@ export default function Profile() {
             </div>
             <div className="child-container">
                <h3 className="text-child">Answer Recovery</h3>
-               <input className="answer-input" id="answer-text" />
+               <input className="answer-input" defaultValue={answer} id="answer-text" />
             </div>
             {/* <div className="child-container">
                <div className="text-container">
