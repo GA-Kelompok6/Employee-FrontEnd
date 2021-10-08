@@ -112,7 +112,7 @@ export default function Profile() {
                <h3 className="text-child">Answer Recovery</h3>
                <input className="answer-input" id="answer-text" />
             </div>
-            <div className="child-container">
+            {/* <div className="child-container">
                <div className="text-container">
                   <h3 className="text-child">Role</h3>
                </div>
@@ -122,7 +122,7 @@ export default function Profile() {
                   <input name="role" type="radio" value="user" id="user" />
                   <label for="user">User</label>
                </div>
-            </div>
+            </div> */}
             <div className="button-container">
                <button className="save-button" type="submit">
                   Save
