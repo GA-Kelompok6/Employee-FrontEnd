@@ -44,8 +44,10 @@ export default function LoginPage() {
       var recDataInputUser = document.getElementById('email');
       var passDataInputPass = document.getElementById('passSignup');
       var recDataInputPass = document.getElementById('pass');
-      recDataInputUser.value = passDataInputUser.value;
-      recDataInputPass.value = passDataInputPass.value;
+      setTimeout(() => {
+         recDataInputUser.value = passDataInputUser.value;
+         recDataInputPass.value = passDataInputPass.value;
+      }, 2000);
 
       if (user.error !== null) {
          setError(user.error);
