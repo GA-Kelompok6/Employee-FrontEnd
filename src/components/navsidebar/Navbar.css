@@ -60,6 +60,7 @@
 
 .user-menu {
   background: rgb(26, 157, 229);
+  z-index: 100;
   width: 15%;
   height: 200px;
   display: flex;

@@ -4,6 +4,7 @@ import axios from "axios";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import jwt_decode from "jwt-decode";
+import DataTable from 'react-data-table-component';
 
 const TableUser = () => {
   require("./style.css");
@@ -51,6 +52,23 @@ const TableUser = () => {
     },
   ];
 
+  const columns2 = [
+    {
+      name: '#',
+      cell: (row, index) => index,
+      grow: 0,
+    },
+    {
+      name: 'Username',
+      selector: row => row.username,
+    }, {
+      name: 'Email',
+      selector: row => row.email,
+    }, {
+      name: 'Role',
+      selector: row => row.role,
+    }];
+
   const defaultSorted = [
     {
       dataField: "username",
@@ -58,12 +76,34 @@ const TableUser = () => {
     },
   ];
 
+  const customStyles = {
+      rows: {
+          style: {
+            fontSize: '15px', 
+        },
+      },
+      headCells: {
+          style: {
+            fontSize: '15px', 
+            paddingLeft: '8px',
+            paddingRight: '8px',
+        },
+      },
+      cells: {
+          style: {
+            fontSize: '15px', 
+            paddingLeft: '8px',
+            paddingRight: '8px',
+      },
+    },
+  };
 
   return (
     <div className="containers">
       <br />
       <div className="container-allAttendance">
-        <BootstrapTable keyField="id" data={datatable} columns={columns} pagination={paginationFactory()} defaultSorted={defaultSorted} bordered={true} striped hover condensed />
+        {/* <BootstrapTable keyField="id" data={datatable} columns={columns} pagination={paginationFactory()} defaultSorted={defaultSorted} bordered={true} striped hover condensed /> */}
+        <DataTable columns={columns2} data={datatable} pagination customStyles={customStyles}/>
       </div>
     </div>
   );

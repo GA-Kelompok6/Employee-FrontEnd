@@ -4,6 +4,7 @@ import axios from "axios";
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import jwt_decode from "jwt-decode";
+import DataTable from 'react-data-table-component';
 
 
 const AllAttendance = () => {
@@ -54,7 +55,22 @@ const AllAttendance = () => {
          dataField: 'distance',
          text: 'Jarak Absen Ke Kantor (KM)'
       }];
-
+   
+   const columns2 = [
+      {
+         name: '#',
+         cell: (row, index) => index,
+         grow: 0,
+      }, {
+         name: 'User Absen',
+         selector: row => row.userId
+      }, {
+         name: 'Tanggal Absen',
+         selector: row => row.Date,
+      }, {
+         name: 'Jarak Absen Ke Kantor (KM)',
+         selector: row => row.distance,
+      }];
 
    const defaultSorted = [{
       dataField: 'name',
@@ -63,11 +79,34 @@ const AllAttendance = () => {
 
    // console.log("testcall2")
 
+   const customStyles = {
+      rows: {
+          style: {
+            fontSize: '15px', 
+         },
+      },
+      headCells: {
+          style: {
+            fontSize: '15px', 
+            paddingLeft: '8px',
+            paddingRight: '8px',
+         },
+      },
+      cells: {
+          style: {
+            fontSize: '15px', 
+            paddingLeft: '8px',
+            paddingRight: '8px',
+         },
+      },
+   };
+
    return (
       <div className="containers">
          <br />
          <div className="container-allAttendance">
-            <BootstrapTable keyField='id' data={datatable} columns={columns} pagination={paginationFactory()} defaultSorted={defaultSorted} bordered={true} striped hover condensed />
+            {/* <BootstrapTable keyField='id' data={datatable} columns={columns} pagination={paginationFactory()} defaultSorted={defaultSorted} bordered={true} striped hover condensed /> */}
+            <DataTable columns={columns2} data={datatable} pagination customStyles={customStyles}/>
          </div>
       </div>
    )

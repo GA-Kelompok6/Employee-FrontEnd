@@ -208,7 +208,7 @@ export default function LoginPage() {
                      }
                      value={Logindetails.password}
                   />
-                  <Link to="/forget?#">Forgot your password?</Link>
+                  <Link to={{pathname: "/forget", search: "?#"}}>Forgot your password?</Link>
 
                   <button type="submit">Login</button>
                </form>

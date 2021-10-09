@@ -8,7 +8,7 @@ import HashLoader from "react-spinners/HashLoader";
 import Swal from "sweetalert2";
 import Navbar from '../navsidebar';
 import AllAttendance from './AllAttendance';
-
+import jwt_decode from "jwt-decode";
 
 export default function Employee() {
 
@@ -20,6 +20,18 @@ export default function Employee() {
    margin: 0 auto;
    border-color: red;
    `;
+
+   var token = localStorage.getItem("token");
+   var user = jwt_decode(token)
+   var role = user.role;
+
+   const munculkanAbsen = () => {
+      if (role == "User"){
+         return (
+            <Attendance Attendance={CheckLocation} />
+         )
+      }
+   }
 
    const linkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/add"
 
@@ -110,7 +122,7 @@ export default function Employee() {
          ) : (
             <>
                <Navbar />
-               <Attendance Attendance={CheckLocation} />
+               {munculkanAbsen()}
                <AllAttendance />
             </>
          )}

@@ -52,7 +52,7 @@ export default function Profile() {
 
       // console.log(inputUsername, inputName, inputEmail, inputQuestion, inputAnswer);
 
-      const gabunganedit = { username: inputUsername, password: inputPassword, name: inputName, email: inputEmail, role: role, questionrecovery: inputQuestion, answerrecovery: inputAnswer };
+      const gabunganedit = { username: inputUsername, password: inputPassword, name: inputName, email: inputEmail, role: role, question: inputQuestion, answer: inputAnswer };
       // console.log(gabunganedit, userId);
 
       const linkAPIUpdateProfile = `https://arcane-badlands-64583.herokuapp.com/users/update/` + userId;
