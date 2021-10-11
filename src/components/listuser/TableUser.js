@@ -54,7 +54,7 @@ const TableUser = () => {
 
   const columns2 = [
     {
-      name: '#',
+      name: 'No',
       cell: (row, index) => index,
       grow: 0,
     },
