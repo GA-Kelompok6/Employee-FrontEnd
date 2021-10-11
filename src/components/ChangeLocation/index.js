@@ -12,7 +12,7 @@ export default function ChangeOffice() {
    const userId = user.sub;
 
    const Location = details => {
-      alert("HI")
+      // alert("HI")
       console.log(details)
 
       const linkAPIUpdateProfile = `https://arcane-badlands-64583.herokuapp.com/users/update/` + userId;

@@ -22,6 +22,9 @@ export default function LoginPage() {
    });
    const [error, setError] = useState(null);
 
+   const [giveusername, setGiveusername] = useState("");
+   const [givepasword, setGivepassword] = useState("");
+
    useEffect(() => {
       if (user.error !== null) {
          setError(user.error);
@@ -40,13 +43,18 @@ export default function LoginPage() {
    const submitHandlerSignup = (e) => {
       dispatch(registerActions(SignupDetails, e, history));
 
-      var passDataInputUser = document.getElementById('nameSignup1');
-      var recDataInputUser = document.getElementById('email');
-      var passDataInputPass = document.getElementById('passSignup');
-      var recDataInputPass = document.getElementById('pass');
+      var passDataInputUser = document.getElementById('nameSignup1').value;
+      var recDataInputUser = document.getElementById('email').value;
+      var passDataInputPass = document.getElementById('passSignup').value;
+      var recDataInputPass = document.getElementById('pass').value;
+
+      setGiveusername(passDataInputUser)
+      setGivepassword(passDataInputPass)
+      // console.log(giveusername, givepasword)
+
       setTimeout(() => {
-         recDataInputUser.value = passDataInputUser.value;
-         recDataInputPass.value = passDataInputPass.value;
+         recDataInputUser = passDataInputUser;
+         recDataInputPass = passDataInputPass;
       }, 2000);
 
       if (user.error !== null) {

@@ -37,7 +37,7 @@ export default function ChangeLocation({ Location }) {
    const submitHandlerLocation = e => {
       e.preventDefault();
 
-      console.log(LongLang);
+      // console.log(LongLang);
       Location(LongLang);
       
    }

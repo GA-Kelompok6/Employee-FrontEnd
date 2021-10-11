@@ -122,6 +122,8 @@ export const registerActions = (values, e, history) => (dispatch) => {
                icon: 'success',
                title: 'Registrasi Berhasil',
                text: 'Silahkan Login Lagi'
+            }).then(() => {
+               window.location.reload();
             })
          })
          // alert("Pendaftaran berhasil");
