@@ -27,9 +27,9 @@ export const SidebarData = [
       cName: "nav-text", //classname
    },
    {
-      title: "ChangeLocation",
-      path: "/ChangeOffice",
-      role: "user",
+      title: "Change Location",
+      path: "/location",
+      role: "User",
       icon: <IoIcons.IoMdPeople />,
       cName: "nav-text", //classname
    },

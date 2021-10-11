@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useHistory } from "react-router";
 
 export default function Profile() {
    require("./style.css");
@@ -17,6 +18,7 @@ export default function Profile() {
    const token = localStorage.getItem("token");
 
    const user = jwt_decode(token);
+   const history = useHistory();
 
    const profileupdate = (userId, token) => {
       const linkAPIProfile = `https://arcane-badlands-64583.herokuapp.com/users/` + userId;
@@ -71,7 +73,7 @@ export default function Profile() {
                title: 'Update Profile Berhasil',
                text: 'Profile Berhasil Di Update'
             })
-         })
+         }).then(() => history.push("/employee"))
          .catch((err) => {
             console.log(err);
             Swal.fire({

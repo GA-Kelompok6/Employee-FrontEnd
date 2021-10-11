@@ -104,7 +104,7 @@ function App() {
             window.location.href = "/";
          });
       } else {
-         // return <ChangeLocation />;
+         return <ChangeLocation />;
       }
    };
 
@@ -113,9 +113,7 @@ function App() {
       <Router>
          <Switch>
             <Route exact path="/">
-               <ChangeLocation />;
-
-               {/* <Login /> */}
+               <Login />
             </Route>
             <Route exact path="/forget">
                <Forget />
