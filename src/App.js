@@ -9,7 +9,7 @@ import AllAttendance from "./components/employee/AllAttendance";
 import Profile from "./components/profile";
 import Swal from "sweetalert2";
 import ListUser from "./components/listuser";
-import ChangeLocation from "./components/ChangeLocation/ChangeLocation";
+import ChangeLocation from "./components/ChangeLocation";
 
 function App() {
    //TokenEmployee

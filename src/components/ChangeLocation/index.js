@@ -13,7 +13,7 @@ export default function ChangeOffice() {
    return (
       <div>
          {/* <Navbar /> */}
-         <ChangeLocation ChangeOffice={Location} />
+         <ChangeLocation Location={Location} />
       </div>
    )
 }
