@@ -98,26 +98,26 @@ export const registerActions = (values, e, history) => (dispatch) => {
          history.push("/");
          let timerInterval
          Swal.fire({
-         title: 'Creating...',
-         html: 'I will close in <b></b> milliseconds.',
-         timer: 2000,
-         timerProgressBar: true,
-         didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
-               b.textContent = Swal.getTimerLeft()
-            }, 100)
-         },
-         willClose: () => {
-            clearInterval(timerInterval)
-         }
+            title: 'Creating...',
+            html: 'I will close in <b></b> milliseconds.',
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+               Swal.showLoading()
+               const b = Swal.getHtmlContainer().querySelector('b')
+               timerInterval = setInterval(() => {
+                  b.textContent = Swal.getTimerLeft()
+               }, 100)
+            },
+            willClose: () => {
+               clearInterval(timerInterval)
+            }
          }).then((result) => {
-         /* Read more about handling dismissals below */
-         if (result.dismiss === Swal.DismissReason.timer) {
-            console.log('I was closed by the timer')
-         }
-         }).then(()=>{
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+               console.log('I was closed by the timer')
+            }
+         }).then(() => {
             Swal.fire({
                icon: 'success',
                title: 'Registrasi Berhasil',
@@ -159,7 +159,7 @@ export const loginActions = (values, e, history) => {
                }).then(() => {
                   history.push("/employee");
                })
-               
+
                localStorage.setItem("token", response.data);
             }
          })

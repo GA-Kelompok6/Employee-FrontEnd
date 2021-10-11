@@ -66,7 +66,7 @@ export default function LoginPage() {
             {/* <!-- Main Start --> */}
             <div className="formContainer signUp">
                <form action="#" onSubmit={submitHandlerSignup}>
-                  <h1 style={{marginBottom:"0px"}}>Sign Up</h1>
+                  <h1 style={{ marginBottom: "0px" }}>Sign Up</h1>
                   <div className="socialMedia">
                      <a href="/" className="social">
                         <i className="fab fa-facebook-f"></i>
@@ -208,7 +208,7 @@ export default function LoginPage() {
                      }
                      value={Logindetails.password}
                   />
-                  <Link to={{pathname: "/forget", search: "?#"}}>Forgot your password?</Link>
+                  <Link to={{ pathname: "/forget", search: "?#" }}>Forgot your password?</Link>
 
                   <button type="submit">Login</button>
                </form>
