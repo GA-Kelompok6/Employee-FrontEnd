@@ -107,6 +107,7 @@ export default function Profile() {
             <div className="child-container">
                <h3 className="text-child">Question Recovery</h3>
                <select className="question-input" type="select" defaultValue={question} placeholder="Choose Recovery Question" id="question-text">
+                  <option value={question} disabled selected>{question}</option>
                   <option disabled selected>Choose Recovery Question</option>
                   <option value="What Is Your Hobby?">What Is Your Hobby?</option>
                   <option value="What Is Your Dream Job?">What Is Your Dream Job?</option>
