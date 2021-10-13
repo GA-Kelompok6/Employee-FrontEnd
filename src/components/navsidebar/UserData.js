@@ -16,4 +16,3 @@ export const userData = [
     cName: "nav-text", //classname
   },
 ];
-window.localStorage.clear();
