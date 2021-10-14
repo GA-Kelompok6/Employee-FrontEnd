@@ -6,7 +6,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 
 const index = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
   return (
-    <ProSidebar image={sidebarBg} rtl={rtl} collapsed={collapsed} toggled={toggled} breakPoint="md" onToggle={handleToggleSidebar} style={{height:"100vh"}}>
+    <ProSidebar image={image ? sidebarBg : false} rtl={rtl} collapsed={collapsed} toggled={toggled} breakPoint="md" onToggle={handleToggleSidebar} style={{height:"100vh"}}>
       <SidebarHeader>
         <div style={{padding: "24px", textTransform: "uppercase", fontWeight: "bold", fontSize: 14, letterSpacing: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
           Employee Attendance

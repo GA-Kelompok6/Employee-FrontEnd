@@ -1,19 +1,9 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
 import Switch from 'react-switch';
 import { FaHeart, FaBars } from 'react-icons/fa';
-import reactLogo from './assets/logo.svg';
+import reactLogo from './logo.svg';
 
-const Main = ({
-  collapsed,
-  rtl,
-  image,
-  handleToggleSidebar,
-  handleCollapsedChange,
-  handleRtlChange,
-  handleImageChange,
-}) => {
-  const intl = useIntl();
+const Main = ({ collapsed, rtl, image, handleToggleSidebar, handleCollapsedChange, handleRtlChange, handleImageChange }) => {
   return (
     <main>
       <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
@@ -21,70 +11,29 @@ const Main = ({
       </div>
       <header>
         <h1>
-          <img width={80} src={reactLogo} alt="react logo" /> {intl.formatMessage({ id: 'title' })}
+          <img width={80} src={reactLogo} alt="react logo" /> React Pro Title
         </h1>
-        <p>{intl.formatMessage({ id: 'description' })}</p>
+        <p>Description</p>
         <div className="social-bagdes">
-          <a
-            href="https://github.com/azouaoui-med/react-pro-sidebar"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              alt="GitHub stars"
-              src="https://img.shields.io/github/stars/azouaoui-med/react-pro-sidebar?style=social"
-            />
+          <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank" rel="noopener noreferrer" >
+            <img alt="GitHub stars" src="https://img.shields.io/github/stars/azouaoui-med/react-pro-sidebar?style=social" />
           </a>
-          <a
-            href="https://github.com/azouaoui-med/react-pro-sidebar"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              alt="GitHub forks"
-              src="https://img.shields.io/github/forks/azouaoui-med/react-pro-sidebar?style=social"
-            />
+          <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank" rel="noopener noreferrer" >
+            <img alt="GitHub forks" src="https://img.shields.io/github/forks/azouaoui-med/react-pro-sidebar?style=social" />
           </a>
         </div>
       </header>
       <div className="block ">
-        <Switch
-          height={16}
-          width={30}
-          checkedIcon={false}
-          uncheckedIcon={false}
-          onChange={handleCollapsedChange}
-          checked={collapsed}
-          onColor="#219de9"
-          offColor="#bbbbbb"
-        />
-        <span> {intl.formatMessage({ id: 'collapsed' })}</span>
+        <Switch height={16} width={30} checkedIcon={false} uncheckedIcon={false} onChange={handleCollapsedChange} checked={collapsed} onColor="#219de9" offColor="#bbbbbb" />
+        <span>Collapsed</span>
       </div>
       <div className="block">
-        <Switch
-          height={16}
-          width={30}
-          checkedIcon={false}
-          uncheckedIcon={false}
-          onChange={handleRtlChange}
-          checked={rtl}
-          onColor="#219de9"
-          offColor="#bbbbbb"
-        />
-        <span> {intl.formatMessage({ id: 'rtl' })}</span>
+        <Switch height={16} width={30} checkedIcon={false} uncheckedIcon={false} onChange={handleRtlChange} checked={rtl} onColor="#219de9" offColor="#bbbbbb" />
+        <span>RTL</span>
       </div>
       <div className="block">
-        <Switch
-          height={16}
-          width={30}
-          checkedIcon={false}
-          uncheckedIcon={false}
-          onChange={handleImageChange}
-          checked={image}
-          onColor="#219de9"
-          offColor="#bbbbbb"
-        />
-        <span> {intl.formatMessage({ id: 'image' })}</span>
+        <Switch height={16} width={30} checkedIcon={false} uncheckedIcon={false} onChange={handleImageChange} checked={image} onColor="#219de9" offColor="#bbbbbb" />
+        <span>Image</span>
       </div>
 
       <footer>

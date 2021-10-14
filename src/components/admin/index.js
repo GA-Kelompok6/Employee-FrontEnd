@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Aside from './admin';
+import MainTemporary from './maintemporary';
 import Navbar from "../navsidebar";
 
 function Layout({ setLocale }) {
@@ -39,6 +40,16 @@ function Layout({ setLocale }) {
       </div>
       <div style={{width:"100%"}}>
         <Navbar />
+        <MainTemporary 
+          image={image}
+          toggled={toggled}
+          collapsed={collapsed}
+          rtl={rtl}
+          handleToggleSidebar={handleToggleSidebar}
+          handleCollapsedChange={handleCollapsedChange}
+          handleRtlChange={handleRtlChange}
+          handleImageChange={handleImageChange}   
+        />
       </div>
     </div>
   );

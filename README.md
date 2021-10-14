@@ -38,3 +38,6 @@
 
 ## React Pro SideBar
 `npm i css-pro-layout`
+
+## React Switch
+`npm i react-switch`
