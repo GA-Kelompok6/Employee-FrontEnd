@@ -9,7 +9,7 @@ import jwt_decode from "jwt-decode";
 import { IconContext } from "react-icons";
 
 
-function Navbar() {
+function Navbars() {
   const [sidebar, setSidebar] = useState(false);
   const [userbar, setUserbar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
@@ -84,4 +84,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbars;
