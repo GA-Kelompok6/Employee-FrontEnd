@@ -7,9 +7,9 @@ import { userData } from "./UserData";
 import jwt_decode from "jwt-decode";
 // import "./Navbar.css";
 import { IconContext } from "react-icons";
+import Switch from 'react-switch';
 
-
-function Navbars() {
+function Navbars({ collapsed, rtl, image, handleToggleSidebar, handleCollapsedChange, handleRtlChange, handleImageChange }) {
   const [sidebar, setSidebar] = useState(false);
   const [userbar, setUserbar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
@@ -26,7 +26,7 @@ function Navbars() {
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
+          <Switch height={16} width={30} checkedIcon={false} uncheckedIcon={false} onChange={handleCollapsedChange} checked={collapsed} onColor="#219de9" offColor="#bbbbbb" />
           </Link>
           <Link to="#" className="menu-bars" style={{ paddingRight: "30px" }}>
             <FaIcons.FaUser onClick={showUserbar} />

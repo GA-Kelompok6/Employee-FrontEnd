@@ -39,7 +39,16 @@ function Layout({ setLocale }) {
         </div>
       </div>
       <div style={{width:"100%"}}>
-        <Navbar />
+        <Navbar 
+          image={image}
+          toggled={toggled}
+          collapsed={collapsed}
+          rtl={rtl}
+          handleToggleSidebar={handleToggleSidebar}
+          handleCollapsedChange={handleCollapsedChange}
+          handleRtlChange={handleRtlChange}
+          handleImageChange={handleImageChange} 
+        />
         <MainTemporary 
           image={image}
           toggled={toggled}
