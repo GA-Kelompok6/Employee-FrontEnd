@@ -35,3 +35,6 @@
 
 ## React Data Table Component & Styled Component
 `npm install react-data-table-component styled-components`
+
+## React Pro SideBar
+`npm i css-pro-layout`
