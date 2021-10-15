@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import TableUser from "./TableUser";
+import React, { useState } from 'react';
+import Aside from './admin';
 import Navbar from "../navsidebar";
-import NewSideBar from '../newnavbar';
 
-export default function index() {
+function Layout({ setLocale }) {
   const [rtl, setRtl] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [image, setImage] = useState(true);
@@ -26,20 +25,19 @@ export default function index() {
   };
 
   return (
-    <div>
-      <div style={{display:"flex"}}>
-        <div>
-          <div className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}>
-            <NewSideBar
-              image={image}
-              collapsed={collapsed}
-              rtl={rtl}
-              toggled={toggled}
-              handleToggleSidebar={handleToggleSidebar}
-            />
-          </div>
+    <div style={{display:"flex"}}>
+      <div>
+        <div className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}>
+          <Aside
+            image={image}
+            collapsed={collapsed}
+            rtl={rtl}
+            toggled={toggled}
+            handleToggleSidebar={handleToggleSidebar}
+          />
         </div>
-        <div style={{width:"100%"}}>
+      </div>
+      <div style={{width:"100%"}}>
         <Navbar 
           image={image}
           toggled={toggled}
@@ -50,9 +48,9 @@ export default function index() {
           handleRtlChange={handleRtlChange}
           handleImageChange={handleImageChange} 
         />
-        <TableUser />
-        </div>
       </div>
     </div>
   );
 }
+
+export default Layout;

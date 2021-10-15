@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
+import * as IoIcons from "react-icons/io";
+import * as CgIcons from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import { userData } from "./UserData";
@@ -22,6 +24,10 @@ function Navbars({ collapsed, rtl, image, handleToggleSidebar, handleCollapsedCh
     } else {
       handleCollapsedChange(true)
     }
+  }
+
+  function ClearLocal(){
+    window.localStorage.clear();
   }
 
   var token = localStorage.getItem("token");
@@ -73,7 +79,19 @@ function Navbars({ collapsed, rtl, image, handleToggleSidebar, handleCollapsedCh
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
-            {userData.map((item, index) => {
+            <li className="nav-text">
+              <Link to="/profile">
+                <CgIcons.CgProfile />
+                <span className="spanSidebar">Profile</span>
+              </Link>
+            </li>
+            <li className="nav-text" onClick={ClearLocal} >
+              <Link to="/">
+                <IoIcons.IoIosExit />
+                <span className="spanSidebar">Log Out</span>
+              </Link>
+            </li>
+            {/* {userData.map((item, index) => {
               // Caranya gimanaaaa???
               // window.localStorage.clear();
               return (
@@ -84,7 +102,7 @@ function Navbars({ collapsed, rtl, image, handleToggleSidebar, handleCollapsedCh
                   </Link>
                 </li>
               );
-            })}
+            })} */}
           </ul>
         </nav>
       </IconContext.Provider>
