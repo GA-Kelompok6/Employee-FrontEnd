@@ -3,7 +3,7 @@ import TableUser from "./TableUser";
 import Navbar from "../navsidebar";
 import NewSideBar from '../newnavbar';
 
-export default function index() {
+export default function Index() {
   const [rtl, setRtl] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [image, setImage] = useState(true);
