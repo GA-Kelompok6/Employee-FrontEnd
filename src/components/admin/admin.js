@@ -1,15 +1,15 @@
 import React from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from "react-pro-sidebar";
 import { FaTachometerAlt, FaGem, FaList,FaGithub, FaRegLaughWink, FaHeart, FaUser, FaDoorOpen } from "react-icons/fa";
-import sidebarBg from "./bg2.jpg";
+import sidebarBg from "./bg1.jpg";
 import "react-pro-sidebar/dist/css/styles.css";
 
 const index = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
   return (
-    <ProSidebar image={image ? sidebarBg : false} rtl={rtl} collapsed={collapsed} toggled={toggled} breakPoint="md" onToggle={handleToggleSidebar} style={{height:"100vh"}}>
+    <ProSidebar image={image ? sidebarBg : false} rtl={rtl} collapsed={collapsed} toggled={toggled} breakPoint="md" onToggle={handleToggleSidebar} style={{height:"100vh", position: "sticky", top: "0"}}>
       <SidebarHeader>
         <div style={{padding: "24px", textTransform: "uppercase", fontWeight: "bold", fontSize: 14, letterSpacing: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-          Employee Attendance
+          G6 Employee Attendance
         </div>
       </SidebarHeader>
       <SidebarContent>

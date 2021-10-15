@@ -16,6 +16,14 @@ function Navbars({ collapsed, rtl, image, handleToggleSidebar, handleCollapsedCh
   const showUserbar = () => setUserbar(!userbar);
   require("./Navbar.css");
 
+  function CallSidebarButton(){
+    if (collapsed == true){
+      handleCollapsedChange(false)
+    } else {
+      handleCollapsedChange(true)
+    }
+  }
+
   var token = localStorage.getItem("token");
   var user = jwt_decode(token)
   var role = user.role;
@@ -26,7 +34,7 @@ function Navbars({ collapsed, rtl, image, handleToggleSidebar, handleCollapsedCh
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
-          <Switch height={16} width={30} checkedIcon={false} uncheckedIcon={false} onChange={handleCollapsedChange} checked={collapsed} onColor="#219de9" offColor="#bbbbbb" />
+          <FaIcons.FaBars onClick={CallSidebarButton} />
           </Link>
           <Link to="#" className="menu-bars" style={{ paddingRight: "30px" }}>
             <FaIcons.FaUser onClick={showUserbar} />

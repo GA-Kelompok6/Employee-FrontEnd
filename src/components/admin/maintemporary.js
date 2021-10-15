@@ -4,6 +4,13 @@ import { FaHeart, FaBars } from 'react-icons/fa';
 import reactLogo from './logo.svg';
 
 const Main = ({ collapsed, rtl, image, handleToggleSidebar, handleCollapsedChange, handleRtlChange, handleImageChange }) => {
+  function CallSidebarButton(){
+    if (collapsed == true){
+      handleCollapsedChange(false)
+    } else {
+      handleCollapsedChange(true)
+    }
+  }
   return (
     <main>
       <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
@@ -25,6 +32,7 @@ const Main = ({ collapsed, rtl, image, handleToggleSidebar, handleCollapsedChang
       </header>
       <div className="block ">
         <Switch height={16} width={30} checkedIcon={false} uncheckedIcon={false} onChange={handleCollapsedChange} checked={collapsed} onColor="#219de9" offColor="#bbbbbb" />
+        <button onClick={CallSidebarButton}>Use Button</button>
         <span>Collapsed</span>
       </div>
       <div className="block">
