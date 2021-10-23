@@ -19,7 +19,8 @@
 
 
 .navbar {
-  background-image: linear-gradient(to left, rgb(26, 157, 229), rgb(70, 236, 228));
+  /* background-image: linear-gradient(to left, rgb(26, 157, 229), rgb(70, 236, 228)); */
+  background-image: url("../newnavbar/bg4.jpg");
   width: 100%;
   height: 50px;
   display: flex;
@@ -44,7 +45,7 @@
   background: rgb(26, 157, 229);
   z-index: 100;
   width: 20%;
-  height: 500px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   position: fixed;
@@ -59,7 +60,8 @@
 }
 
 .user-menu {
-  background: rgb(26, 157, 229);
+  /* background: rgb(26, 157, 229); */
+  background: url("../newnavbar/bg4.jpg");
   z-index: 100;
   width: 15%;
   height: 200px;
@@ -74,6 +76,7 @@
 .user-menu.active {
   top: 0;
   transition: 350ms;
+  border-radius: 0 0 0 20px;
 }
 
 .nav-text {
@@ -118,7 +121,8 @@
 }
 
 .navbar-toggle {
-  background-color: rgb(26, 157, 229);
+  /* background-color: rgb(26, 157, 229); */
+  background-image: url("../newnavbar/bg4.jpg");
   width: 100%;
   height: 80px;
   display: flex;

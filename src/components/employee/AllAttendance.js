@@ -104,7 +104,7 @@ const AllAttendance = () => {
    return (
       <div className="containers">
          <br />
-         <div className="container-allAttendance">
+         <div className="container-allAttendance customScrollBar" style={{maxHeight:"85vh", overflowY: "scroll"}}>
             {/* <BootstrapTable keyField='id' data={datatable} columns={columns} pagination={paginationFactory()} defaultSorted={defaultSorted} bordered={true} striped hover condensed /> */}
             <DataTable columns={columns2} data={datatable} pagination customStyles={customStyles}/>
          </div>

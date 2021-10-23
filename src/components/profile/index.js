@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router";
+import NewSideBar from '../newnavbar';
 
 export default function Profile() {
    require("./style.css");
@@ -84,58 +85,105 @@ export default function Profile() {
          });
    };
 
+   const [rtl, setRtl] = useState(false);
+   const [collapsed, setCollapsed] = useState(false);
+   const [image, setImage] = useState(true);
+   const [toggled, setToggled] = useState(false);
+
+   const handleCollapsedChange = (checked) => {
+      setCollapsed(checked);
+   };
+
+   const handleRtlChange = (checked) => {
+      setRtl(checked);
+      // setLocale(checked ? 'ar' : 'en');
+   };
+   const handleImageChange = (checked) => {
+      setImage(checked);
+   };
+
+   const handleToggleSidebar = (value) => {
+      setToggled(value);
+   };
+
    return (
       <>
-         <Navbar />
-         <form className="profile-container" onSubmit={savedata}>
-            <div className="child-container">
-               <h3 className="text-child">Username</h3>
-               <input className="username-input" defaultValue={username} id="username-text" />
-            </div>
-            <div className="child-container">
-               <h3 className="text-child">Name</h3>
-               <input className="name-input" defaultValue={name} id="name-text" />
-            </div>
-            <div className="child-container">
-               <h3 className="text-child">Password</h3>
-               <input className="password-input" type="password" id="password-text" />
-            </div>
-            <div className="child-container">
-               <h3 className="text-child">Email</h3>
-               <input className="email-input" defaultValue={email} id="email-text" />
-            </div>
-            <div className="child-container">
-               <h3 className="text-child">Question Recovery</h3>
-               <select className="question-input" type="select" defaultValue={question} placeholder="Choose Recovery Question" id="question-text">
-                  <option value={question} disabled selected>{question}</option>
-                  <option disabled selected>Choose Recovery Question</option>
-                  <option value="What Is Your Hobby?">What Is Your Hobby?</option>
-                  <option value="What Is Your Dream Job?">What Is Your Dream Job?</option>
-                  <option value="What Is The First Name Of Your Best Friend In High School?">What Is The First Name Of Your Best Friend In High School?</option>
-                  <option value="What is the name of your favorite pet?">What Is The Name Of Your Favorite Pet?</option>
-               </select>
-            </div>
-            <div className="child-container">
-               <h3 className="text-child">Answer Recovery</h3>
-               <input className="answer-input" defaultValue={answer} id="answer-text" />
-            </div>
-            {/* <div className="child-container">
-               <div className="text-container">
-                  <h3 className="text-child">Role</h3>
+         <div style={{display:"flex"}}>
+            <div>
+               <div className={`app ${rtl ? "rtl" : ""} ${toggled ? "toggled" : ""}`}>
+                  <NewSideBar
+                     image={image}
+                     collapsed={collapsed}
+                     rtl={rtl}
+                     toggled={toggled}
+                     handleToggleSidebar={handleToggleSidebar}
+                  />
                </div>
-               <div className="radio-container">
-                  <input name="role" type="radio" value="admin" id="admin" checked="true" />
-                  <label for="admin">Admin</label>
-                  <input name="role" type="radio" value="user" id="user" />
-                  <label for="user">User</label>
-               </div>
-            </div> */}
-            <div className="button-container">
-               <button className="save-button" type="submit">
-                  Save
-               </button>
             </div>
-         </form>
+            <div style={{width:"100%"}}>
+            <Navbar 
+               image={image}
+               toggled={toggled}
+               collapsed={collapsed}
+               rtl={rtl}
+               handleToggleSidebar={handleToggleSidebar}
+               handleCollapsedChange={handleCollapsedChange}
+               handleRtlChange={handleRtlChange}
+               handleImageChange={handleImageChange} 
+            />
+            <div className="customScrollBar" style={{maxHeight:"90vh", overflowY: "scroll"}}>
+               <form className="profile-container" onSubmit={savedata}>
+                  <div className="child-container">
+                     <h3 className="text-child">Username</h3>
+                     <input className="username-input" defaultValue={username} id="username-text" />
+                  </div>
+                  <div className="child-container">
+                     <h3 className="text-child">Name</h3>
+                     <input className="name-input" defaultValue={name} id="name-text" />
+                  </div>
+                  <div className="child-container">
+                     <h3 className="text-child">Password</h3>
+                     <input className="password-input" type="password" id="password-text" />
+                  </div>
+                  <div className="child-container">
+                     <h3 className="text-child">Email</h3>
+                     <input className="email-input" defaultValue={email} id="email-text" />
+                  </div>
+                  <div className="child-container">
+                     <h3 className="text-child">Question Recovery</h3>
+                     <select className="question-input" type="select" defaultValue={question} placeholder="Choose Recovery Question" id="question-text">
+                        <option value={question} disabled selected>{question}</option>
+                        <option disabled selected>Choose Recovery Question</option>
+                        <option value="What Is Your Hobby?">What Is Your Hobby?</option>
+                        <option value="What Is Your Dream Job?">What Is Your Dream Job?</option>
+                        <option value="What Is The First Name Of Your Best Friend In High School?">What Is The First Name Of Your Best Friend In High School?</option>
+                        <option value="What is the name of your favorite pet?">What Is The Name Of Your Favorite Pet?</option>
+                     </select>
+                  </div>
+                  <div className="child-container">
+                     <h3 className="text-child">Answer Recovery</h3>
+                     <input className="answer-input" defaultValue={answer} id="answer-text" />
+                  </div>
+                  {/* <div className="child-container">
+                     <div className="text-container">
+                        <h3 className="text-child">Role</h3>
+                     </div>
+                     <div className="radio-container">
+                        <input name="role" type="radio" value="admin" id="admin" checked="true" />
+                        <label for="admin">Admin</label>
+                        <input name="role" type="radio" value="user" id="user" />
+                        <label for="user">User</label>
+                     </div>
+                  </div> */}
+                  <div className="button-container">
+                     <button className="save-button" type="submit">
+                        Save
+                     </button>
+                  </div>
+               </form>
+            </div>
+            </div>
+         </div>
       </>
    );
 }

@@ -136,6 +136,9 @@ function App() {
             <Route exact path="/location">
                {tokenHilangLocation}
             </Route>
+            <Route exact path="/admin">
+               <Admin />
+            </Route>
          </Switch>
       </Router>
    );
