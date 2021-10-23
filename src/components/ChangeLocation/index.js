@@ -58,7 +58,7 @@ export default function ChangeOffice() {
 
    const handleRtlChange = (checked) => {
       setRtl(checked);
-      setLocale(checked ? 'ar' : 'en');
+      // setLocale(checked ? 'ar' : 'en');
    };
    const handleImageChange = (checked) => {
       setImage(checked);
