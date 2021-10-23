@@ -131,55 +131,57 @@ export default function Profile() {
                handleRtlChange={handleRtlChange}
                handleImageChange={handleImageChange} 
             />
-            <form className="profile-container" onSubmit={savedata}>
-               <div className="child-container">
-                  <h3 className="text-child">Username</h3>
-                  <input className="username-input" defaultValue={username} id="username-text" />
-               </div>
-               <div className="child-container">
-                  <h3 className="text-child">Name</h3>
-                  <input className="name-input" defaultValue={name} id="name-text" />
-               </div>
-               <div className="child-container">
-                  <h3 className="text-child">Password</h3>
-                  <input className="password-input" type="password" id="password-text" />
-               </div>
-               <div className="child-container">
-                  <h3 className="text-child">Email</h3>
-                  <input className="email-input" defaultValue={email} id="email-text" />
-               </div>
-               <div className="child-container">
-                  <h3 className="text-child">Question Recovery</h3>
-                  <select className="question-input" type="select" defaultValue={question} placeholder="Choose Recovery Question" id="question-text">
-                     <option value={question} disabled selected>{question}</option>
-                     <option disabled selected>Choose Recovery Question</option>
-                     <option value="What Is Your Hobby?">What Is Your Hobby?</option>
-                     <option value="What Is Your Dream Job?">What Is Your Dream Job?</option>
-                     <option value="What Is The First Name Of Your Best Friend In High School?">What Is The First Name Of Your Best Friend In High School?</option>
-                     <option value="What is the name of your favorite pet?">What Is The Name Of Your Favorite Pet?</option>
-                  </select>
-               </div>
-               <div className="child-container">
-                  <h3 className="text-child">Answer Recovery</h3>
-                  <input className="answer-input" defaultValue={answer} id="answer-text" />
-               </div>
-               {/* <div className="child-container">
-                  <div className="text-container">
-                     <h3 className="text-child">Role</h3>
+            <div className="customScrollBar" style={{maxHeight:"90vh", overflowY: "scroll"}}>
+               <form className="profile-container" onSubmit={savedata}>
+                  <div className="child-container">
+                     <h3 className="text-child">Username</h3>
+                     <input className="username-input" defaultValue={username} id="username-text" />
                   </div>
-                  <div className="radio-container">
-                     <input name="role" type="radio" value="admin" id="admin" checked="true" />
-                     <label for="admin">Admin</label>
-                     <input name="role" type="radio" value="user" id="user" />
-                     <label for="user">User</label>
+                  <div className="child-container">
+                     <h3 className="text-child">Name</h3>
+                     <input className="name-input" defaultValue={name} id="name-text" />
                   </div>
-               </div> */}
-               <div className="button-container">
-                  <button className="save-button" type="submit">
-                     Save
-                  </button>
-               </div>
-            </form>
+                  <div className="child-container">
+                     <h3 className="text-child">Password</h3>
+                     <input className="password-input" type="password" id="password-text" />
+                  </div>
+                  <div className="child-container">
+                     <h3 className="text-child">Email</h3>
+                     <input className="email-input" defaultValue={email} id="email-text" />
+                  </div>
+                  <div className="child-container">
+                     <h3 className="text-child">Question Recovery</h3>
+                     <select className="question-input" type="select" defaultValue={question} placeholder="Choose Recovery Question" id="question-text">
+                        <option value={question} disabled selected>{question}</option>
+                        <option disabled selected>Choose Recovery Question</option>
+                        <option value="What Is Your Hobby?">What Is Your Hobby?</option>
+                        <option value="What Is Your Dream Job?">What Is Your Dream Job?</option>
+                        <option value="What Is The First Name Of Your Best Friend In High School?">What Is The First Name Of Your Best Friend In High School?</option>
+                        <option value="What is the name of your favorite pet?">What Is The Name Of Your Favorite Pet?</option>
+                     </select>
+                  </div>
+                  <div className="child-container">
+                     <h3 className="text-child">Answer Recovery</h3>
+                     <input className="answer-input" defaultValue={answer} id="answer-text" />
+                  </div>
+                  {/* <div className="child-container">
+                     <div className="text-container">
+                        <h3 className="text-child">Role</h3>
+                     </div>
+                     <div className="radio-container">
+                        <input name="role" type="radio" value="admin" id="admin" checked="true" />
+                        <label for="admin">Admin</label>
+                        <input name="role" type="radio" value="user" id="user" />
+                        <label for="user">User</label>
+                     </div>
+                  </div> */}
+                  <div className="button-container">
+                     <button className="save-button" type="submit">
+                        Save
+                     </button>
+                  </div>
+               </form>
+            </div>
             </div>
          </div>
       </>

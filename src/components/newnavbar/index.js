@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarFooter, SidebarContent } from "react-pro-sidebar";
 import { FaTachometerAlt, FaGem, FaList,FaGithub, FaRegLaughWink, FaHeart, FaUser, FaDoorOpen, FaMapPin } from "react-icons/fa";
-import sidebarBg from "./bg1.jpg";
+import sidebarBg from "./bg4.jpg";
 import "react-pro-sidebar/dist/css/styles.css";
 
 const index = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
