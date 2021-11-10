@@ -54,7 +54,7 @@ export default function Attendance({ Attendance }) {
             <h3>Tanggal: {CurrentDate}</h3>
             <br />
             <form onSubmit={attendanceConfirmation}>
-               <button className="submitbutton" type="submit">Absen Hari Ini</button>
+               <button className="submitbutton button" type="submit">Absen Hari Ini</button>
             </form>
          </div>
       </div>

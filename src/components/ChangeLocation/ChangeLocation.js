@@ -68,7 +68,7 @@ export default function ChangeLocation({ Location }) {
                   lang: e.target.value,
                })} placeholder="Input Your Latitude" required />
          </div>
-         <button type="submit">Change Location</button>
+         <button type="submit" className="button">Change Location</button>
          </form>
       </div>
    )

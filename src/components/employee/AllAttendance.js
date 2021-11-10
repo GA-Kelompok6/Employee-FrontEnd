@@ -10,24 +10,28 @@ import DataTable from 'react-data-table-component';
 const AllAttendance = () => {
    require('./style.css')
    // require('./bootstrap.min.css')
+   const user = jwt_decode(localStorage.token);
+   const idUser = user.sub;
+
    const [datatable, setDatatable] = useState("");
-   const [LinkAPI, setLinkAPI] = useState("")
+   const [LinkAPI, setLinkAPI] = useState("https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser)
    const [columns2, setColumns2] = useState([])
    const [isAdmin, setIsAdmin] = useState()
    
-   const user = jwt_decode(localStorage.token);
-   const idUser = user.sub;
-   useEffect(() => {
-      if (user.role == "Admin") {
-         setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/"); //Admin
-      } else {
-         setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser); //User
-      }
-   })
+   // const user = jwt_decode(localStorage.token);
+   // const idUser = user.sub;
+   // useEffect(() => {
+   //    if (user.role == "Admin") {
+   //       setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/"); //Admin
+   //    } else {
+   //       setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser); //User
+   //    }
+   // })
    
 
    useEffect(() => {
       if (user.role == "Admin") {
+         setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/")
          setColumns2([
             {
                name: 'No',
