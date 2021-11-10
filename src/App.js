@@ -17,7 +17,7 @@ function App() {
       if (localStorage.getItem("token") == null) {
          Swal.fire({
             icon: "error",
-            title: "Token Hilang/Token Tidak Ada",
+            title: "Login Failed",
             text: "Silahkan Login Kembali",
             timer: 5000,
          }).then(() => {
@@ -33,7 +33,7 @@ function App() {
       if (localStorage.getItem("token") == null) {
          Swal.fire({
             icon: "error",
-            title: "Token Hilang/Token Tidak Ada",
+            title: "Login Failed",
             text: "Silahkan Login Kembali",
             timer: 5000,
          }).then(() => {
@@ -49,7 +49,7 @@ function App() {
       if (localStorage.getItem("token") == null) {
          Swal.fire({
             icon: "error",
-            title: "Token Hilang/Token Tidak Ada",
+            title: "Login Failed",
             text: "Silahkan Login Kembali",
             timer: 5000,
          }).then(() => {
@@ -65,7 +65,7 @@ function App() {
       if (localStorage.getItem("token") == null) {
          Swal.fire({
             icon: "error",
-            title: "Token Hilang/Token Tidak Ada",
+            title: "Login Failed",
             text: "Silahkan Login Kembali",
             timer: 5000,
          }).then(() => {
@@ -81,7 +81,7 @@ function App() {
       if (localStorage.getItem("token") == null) {
          Swal.fire({
             icon: "error",
-            title: "Token Hilang/Token Tidak Ada",
+            title: "Login Failed",
             text: "Silahkan Login Kembali",
             timer: 5000,
          }).then(() => {
@@ -97,7 +97,7 @@ function App() {
       if (localStorage.getItem("token") == null) {
          Swal.fire({
             icon: "error",
-            title: "Token Hilang/Token Tidak Ada",
+            title: "Login Failed",
             text: "Silahkan Login Kembali",
             timer: 5000,
          }).then(() => {

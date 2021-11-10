@@ -61,12 +61,15 @@ const TableUser = () => {
     {
       name: 'Username',
       selector: row => row.username,
+      sortable: true
     }, {
       name: 'Email',
       selector: row => row.email,
+      sortable: true
     }, {
       name: 'Role',
       selector: row => row.role,
+      sortable: true
     }];
 
   const defaultSorted = [

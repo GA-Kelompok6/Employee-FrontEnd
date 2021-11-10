@@ -11,7 +11,10 @@ const AllAttendance = () => {
    require('./style.css')
    // require('./bootstrap.min.css')
    const [datatable, setDatatable] = useState("");
-
+   const [LinkAPI, setLinkAPI] = useState("")
+   const [columns2, setColumns2] = useState([])
+   const [isAdmin, setIsAdmin] = useState()
+   
 
 
    useEffect(() => {
@@ -19,8 +22,45 @@ const AllAttendance = () => {
 
       const idUser = user.sub;
 
-      // const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser;
-      const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/"; //Admin
+      if (user.role == "Admin") {
+         setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/"); //Admin
+         setColumns2([
+            {
+               name: 'No',
+               cell: (row, index) => index,
+               grow: 0
+            }, {
+               name: 'User Absen',
+               selector: row => row.userId,
+               sortable: true
+            }, {
+               name: 'Tanggal Absen',
+               selector: row => row.Date,
+               sortable: true
+            }, {
+               name: 'Jarak Absen Ke Kantor (KM)',
+               selector: row => row.distance,
+               sortable: true
+            }])
+         setIsAdmin(true)
+      } else {
+         setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser); //User
+         setColumns2([
+            {
+               name: 'No',
+               cell: (row, index) => index,
+               grow: 0
+            }, {
+               name: 'Tanggal Absen',
+               selector: row => row.Date,
+               sortable: true
+            }, {
+               name: 'Jarak Absen Ke Kantor (KM)',
+               selector: row => row.distance,
+               sortable: true
+            }])
+         setIsAdmin(false)
+      }
 
 
       // console.log(localStorage)
@@ -38,7 +78,7 @@ const AllAttendance = () => {
          }).catch(error => {
             console.log(error)
          })
-   }, [])
+   }, [LinkAPI])
 
    const columns = [
       {
@@ -56,21 +96,21 @@ const AllAttendance = () => {
          text: 'Jarak Absen Ke Kantor (KM)'
       }];
    
-   const columns2 = [
-      {
-         name: 'No',
-         cell: (row, index) => index,
-         grow: 0,
-      }, {
-         name: 'User Absen',
-         selector: row => row.userId
-      }, {
-         name: 'Tanggal Absen',
-         selector: row => row.Date,
-      }, {
-         name: 'Jarak Absen Ke Kantor (KM)',
-         selector: row => row.distance,
-      }];
+   // const columns2 = [
+   //    {
+   //       name: 'No',
+   //       cell: (row, index) => index,
+   //       grow: 0,
+   //    }, {
+   //       name: 'User Absen',
+   //       selector: row => row.userId
+   //    }, {
+   //       name: 'Tanggal Absen',
+   //       selector: row => row.Date,
+   //    }, {
+   //       name: 'Jarak Absen Ke Kantor (KM)',
+   //       selector: row => row.distance,
+   //    }];
 
    const defaultSorted = [{
       dataField: 'name',
@@ -104,7 +144,7 @@ const AllAttendance = () => {
    return (
       <div className="containers">
          <br />
-         <div className="container-allAttendance customScrollBar" style={{maxHeight:"85vh", overflowY: "scroll"}}>
+         <div className="container-allAttendance customScrollBar" style={ isAdmin ? {maxHeight:"85vh", overflowY: "scroll"} : {maxHeight:"70vh", overflowY: "scroll"}}>
             {/* <BootstrapTable keyField='id' data={datatable} columns={columns} pagination={paginationFactory()} defaultSorted={defaultSorted} bordered={true} striped hover condensed /> */}
             <DataTable columns={columns2} data={datatable} pagination customStyles={customStyles}/>
          </div>

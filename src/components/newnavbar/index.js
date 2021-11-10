@@ -54,36 +54,8 @@ const index = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
       <SidebarContent>
         <Menu iconShape="circle">
           {CheckRoles()}
-          <MenuItem icon={<FaDoorOpen />}>
-            Log Out
-          </MenuItem>
-        </Menu>
-        <Menu iconShape="circle">
-          <SubMenu title='Extra Menu' icon={<FaRegLaughWink />}>
-            <MenuItem>Menu 1</MenuItem>
-            <MenuItem>Menu 2</MenuItem>
-            <MenuItem>Menu 3</MenuItem>
-          </SubMenu>
         </Menu>
       </SidebarContent>
-
-      <SidebarFooter style={{ textAlign: "center" }}>
-        <div
-          className="sidebar-btn-wrapper"
-          style={{
-            padding: "20px 24px",
-          }}
-        >
-          <a
-            href="https://github.com/"
-            target="_blank"
-            className="sidebar-btn"
-            rel="noopener noreferrer"
-          >
-            <FaGithub style={{color:"white"}} />
-          </a>
-        </div>
-      </SidebarFooter>
     </ProSidebar>
   );
 };
