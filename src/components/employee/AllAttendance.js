@@ -15,15 +15,19 @@ const AllAttendance = () => {
    const [columns2, setColumns2] = useState([])
    const [isAdmin, setIsAdmin] = useState()
    
-
-
+   const user = jwt_decode(localStorage.token);
+   const idUser = user.sub;
    useEffect(() => {
-      const user = jwt_decode(localStorage.token);
-
-      const idUser = user.sub;
-
       if (user.role == "Admin") {
          setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/"); //Admin
+      } else {
+         setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser); //User
+      }
+   })
+   
+
+   useEffect(() => {
+      if (user.role == "Admin") {
          setColumns2([
             {
                name: 'No',
@@ -44,7 +48,6 @@ const AllAttendance = () => {
             }])
          setIsAdmin(true)
       } else {
-         setLinkAPI("https://arcane-badlands-64583.herokuapp.com/attandence/userId/" + idUser); //User
          setColumns2([
             {
                name: 'No',
