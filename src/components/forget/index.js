@@ -34,7 +34,7 @@ function Forget() {
       }
 
       axios.get(
-         "https://arcane-badlands-64583.herokuapp.com/forget/forget/"
+         "http://52.14.39.127:3000/forget/forget/"
       )
          .then((response) => {
             const myData = response.data;
@@ -79,7 +79,7 @@ function Forget() {
                            console.log(getUserID)
 
                            axios.put(
-                              "https://arcane-badlands-64583.herokuapp.com/forget/update/" +
+                              "http://52.14.39.127:3000/forget/update/" +
                               getUserID,
                               changePassword
                            );

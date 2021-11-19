@@ -16,7 +16,7 @@ export default function ChangeOffice() {
       // alert("HI")
       console.log(details)
 
-      const linkAPIUpdateProfile = `https://arcane-badlands-64583.herokuapp.com/users/office/edit/` + userId;
+      const linkAPIUpdateProfile = `http://52.14.39.127:3000/users/office/edit/` + userId;
       const convertData = Object.values(details)
       console.log(convertData)
 

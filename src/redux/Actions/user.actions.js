@@ -87,7 +87,7 @@ export const registerActions = (values, e, history) => (dispatch) => {
 
    return axios
       .post(
-         "https://arcane-badlands-64583.herokuapp.com/home/register",
+         "http://52.14.39.127:3000/home/register",
          values
       )
       .then((response) => {
@@ -145,7 +145,7 @@ export const loginActions = (values, e, history) => {
 
       return axios
          .post(
-            "https://arcane-badlands-64583.herokuapp.com/home/login",
+            "http://52.14.39.127:3000/home/login",
             values
          )
          .then((response) => {

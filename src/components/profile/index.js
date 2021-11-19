@@ -22,7 +22,7 @@ export default function Profile() {
    const history = useHistory();
 
    const profileupdate = (userId, token) => {
-      const linkAPIProfile = `https://arcane-badlands-64583.herokuapp.com/users/` + userId;
+      const linkAPIProfile = `http://52.14.39.127:3000/users/` + userId;
 
       axios
          .get(linkAPIProfile, {
@@ -58,7 +58,7 @@ export default function Profile() {
       const gabunganedit = { username: inputUsername, password: inputPassword, name: inputName, email: inputEmail, role: role, question: inputQuestion, answer: inputAnswer };
       // console.log(gabunganedit, userId);
 
-      const linkAPIUpdateProfile = `https://arcane-badlands-64583.herokuapp.com/users/update/` + userId;
+      const linkAPIUpdateProfile = `http://52.14.39.127:3000/users/update/` + userId;
 
       let config = {
          headers: {

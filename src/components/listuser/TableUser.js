@@ -12,7 +12,7 @@ const TableUser = () => {
 
   useEffect(() => {
 
-    const LinkAPI = "https://arcane-badlands-64583.herokuapp.com/users/";
+    const LinkAPI = "http://52.14.39.127:3000/users/";
 
     let config = {
       headers: {

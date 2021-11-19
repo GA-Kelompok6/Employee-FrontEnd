@@ -34,7 +34,7 @@ export default function Employee() {
       }
    }
 
-   const linkAPI = "https://arcane-badlands-64583.herokuapp.com/attandence/add"
+   const linkAPI = "http://52.14.39.127:3000/attandence/add"
 
    function CheckLocation() {
       setDone(false);
