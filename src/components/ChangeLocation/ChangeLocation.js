@@ -17,7 +17,7 @@ export default function ChangeLocation({ Location }) {
    const user = jwt_decode(token);
    useEffect(() => {
       const profileupdate = (userId, token) => {
-         const linkAPIProfile = `http://52.14.39.127:3000/users/` + userId;
+         const linkAPIProfile = `https://worker-attendance-app-backend.vercel.app/users/` + userId;
 
          axios
             .get(linkAPIProfile, {

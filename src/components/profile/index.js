@@ -22,7 +22,7 @@ export default function Profile() {
    const history = useHistory();
 
    const profileupdate = (userId, token) => {
-      const linkAPIProfile = `http://52.14.39.127:3000/users/` + userId;
+      const linkAPIProfile = `https://worker-attendance-app-backend.vercel.app/users/` + userId;
 
       axios
          .get(linkAPIProfile, {
@@ -58,7 +58,7 @@ export default function Profile() {
       const gabunganedit = { username: inputUsername, password: inputPassword, name: inputName, email: inputEmail, role: role, question: inputQuestion, answer: inputAnswer };
       // console.log(gabunganedit, userId);
 
-      const linkAPIUpdateProfile = `http://52.14.39.127:3000/users/update/` + userId;
+      const linkAPIUpdateProfile = `https://worker-attendance-app-backend.vercel.app/users/update/` + userId;
 
       let config = {
          headers: {

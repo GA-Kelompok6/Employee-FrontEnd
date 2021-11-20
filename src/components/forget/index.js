@@ -34,7 +34,7 @@ function Forget() {
       }
 
       axios.get(
-         "http://52.14.39.127:3000/forget/forget/"
+         "https://worker-attendance-app-backend.vercel.app/forget/forget/"
       )
          .then((response) => {
             const myData = response.data;
@@ -79,7 +79,7 @@ function Forget() {
                            console.log(getUserID)
 
                            axios.put(
-                              "http://52.14.39.127:3000/forget/update/" +
+                              "https://worker-attendance-app-backend.vercel.app/forget/update/" +
                               getUserID,
                               changePassword
                            );

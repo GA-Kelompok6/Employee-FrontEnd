@@ -87,7 +87,7 @@ export const registerActions = (values, e, history) => (dispatch) => {
 
    return axios
       .post(
-         "http://52.14.39.127:3000/home/register",
+         "https://worker-attendance-app-backend.vercel.app/home/register",
          values
       )
       .then((response) => {
@@ -145,7 +145,7 @@ export const loginActions = (values, e, history) => {
 
       return axios
          .post(
-            "http://52.14.39.127:3000/home/login",
+            "https://worker-attendance-app-backend.vercel.app/home/login",
             values
          )
          .then((response) => {

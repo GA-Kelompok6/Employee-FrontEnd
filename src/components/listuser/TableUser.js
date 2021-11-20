@@ -12,7 +12,7 @@ const TableUser = () => {
 
   useEffect(() => {
 
-    const LinkAPI = "http://52.14.39.127:3000/users/";
+    const LinkAPI = "https://worker-attendance-app-backend.vercel.app/users/";
 
     let config = {
       headers: {

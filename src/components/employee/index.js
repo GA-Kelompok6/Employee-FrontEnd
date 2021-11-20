@@ -34,7 +34,7 @@ export default function Employee() {
       }
    }
 
-   const linkAPI = "http://52.14.39.127:3000/attandence/add"
+   const linkAPI = "https://worker-attendance-app-backend.vercel.app/attandence/add"
 
    function CheckLocation() {
       setDone(false);

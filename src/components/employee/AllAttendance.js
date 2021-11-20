@@ -14,7 +14,7 @@ const AllAttendance = () => {
    const idUser = user.sub;
 
    const [datatable, setDatatable] = useState("");
-   const [LinkAPI, setLinkAPI] = useState("http://52.14.39.127:3000/attandence/userId/" + idUser)
+   const [LinkAPI, setLinkAPI] = useState("https://worker-attendance-app-backend.vercel.app/attandence/userId/" + idUser)
    const [columns2, setColumns2] = useState([])
    const [isAdmin, setIsAdmin] = useState()
    
@@ -22,16 +22,16 @@ const AllAttendance = () => {
    // const idUser = user.sub;
    // useEffect(() => {
    //    if (user.role == "Admin") {
-   //       setLinkAPI("http://52.14.39.127:3000/attandence/"); //Admin
+   //       setLinkAPI("https://worker-attendance-app-backend.vercel.app/attandence/"); //Admin
    //    } else {
-   //       setLinkAPI("http://52.14.39.127:3000/attandence/userId/" + idUser); //User
+   //       setLinkAPI("https://worker-attendance-app-backend.vercel.app/attandence/userId/" + idUser); //User
    //    }
    // })
    
 
    useEffect(() => {
       if (user.role == "Admin") {
-         setLinkAPI("http://52.14.39.127:3000/attandence/")
+         setLinkAPI("https://worker-attendance-app-backend.vercel.app/attandence/")
          setColumns2([
             {
                name: 'No',
