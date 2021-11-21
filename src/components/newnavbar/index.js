@@ -49,21 +49,23 @@ const index = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
     if (collapsed == true) {
       console.log(collapsed)
       return (
-        <p>G6 EA</p>
+        <div style={{paddingTop: "17px", paddingBottom: "16px", textAlign: "center", textTransform: "uppercase", fontWeight: "bold", fontSize: 14, letterSpacing: "1px", overflow: "hidden", whiteSpace: "nowrap" }}>
+          G6 EA
+        </div>
       )
     } else {
       console.log(collapsed)
       return (
-        <p>G6 Employee Attendance</p>
+        <div style={{padding: "17px 24px 16px 24px", textTransform: "uppercase", fontWeight: "bold", fontSize: 14, letterSpacing: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+          G6 Employee Attendance
+        </div>
       )
     }
   }
   return (
     <ProSidebar image={image ? sidebarBg : false} rtl={rtl} collapsed={collapsed} toggled={toggled} breakPoint="md" onToggle={handleToggleSidebar} style={{height:"100vh", position: "sticky", top: "0"}}>
       <SidebarHeader>
-        <div style={{padding: "17px 24px 16px 24px", textTransform: "uppercase", fontWeight: "bold", fontSize: 14, letterSpacing: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-          {checkHeader()}
-        </div>
+        {checkHeader()}
       </SidebarHeader>
       <SidebarContent>
         <Menu iconShape="circle">
