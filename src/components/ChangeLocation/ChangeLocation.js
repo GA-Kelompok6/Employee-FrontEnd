@@ -5,8 +5,7 @@ import Location from "./index"
 import MapGL, {Marker, NavigationControl} from 'react-map-gl';
 import Pin from './pin';
 import ControlPanel from './control-panel';
-import mapboxgl from 'mapbox-gl';
-import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default function ChangeLocation({ Location }) {
    require("./style.css")
@@ -83,8 +82,6 @@ export default function ChangeLocation({ Location }) {
          latitude: event.lngLat[1]
       });
    }, []);
-
-   mapboxgl.workerClass = MapboxWorker.default;
 
    const MAPBOX_TOKEN = 'pk.eyJ1IjoieW91a3ZuIiwiYSI6ImNrdnlxd2k4bzRzcDUybnRrYWhucmlibGMifQ.YgRcw2T-czE0vjbxfP18Hw';
 
