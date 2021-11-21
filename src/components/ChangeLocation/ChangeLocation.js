@@ -7,13 +7,15 @@ import Pin from './pin';
 import ControlPanel from './control-panel';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
 
 export default function ChangeLocation({ Location }) {
    require("./style.css")
 
-   mapboxgl.workerClass = MapboxWorker.default;
+   // The following is required to stop "npm build" from transpiling mapbox code.
+   // notice the exclamation point in the import.
+   // @ts-ignore
+   // eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
+   mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
    const [LongLang, setLocation] = useState({ long: "", lang: "" });
    // const [longitude, setLongitude] = useState("");
