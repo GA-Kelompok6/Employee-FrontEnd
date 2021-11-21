@@ -5,9 +5,15 @@ import Location from "./index"
 import MapGL, {Marker, NavigationControl} from 'react-map-gl';
 import Pin from './pin';
 import ControlPanel from './control-panel';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
 
 export default function ChangeLocation({ Location }) {
    require("./style.css")
+
+   mapboxgl.workerClass = MapboxWorker.default;
 
    const [LongLang, setLocation] = useState({ long: "", lang: "" });
    // const [longitude, setLongitude] = useState("");
