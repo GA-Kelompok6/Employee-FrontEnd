@@ -44,11 +44,25 @@ const index = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
       )
     }
   }
+
+  function checkHeader () {
+    if (collapsed == true) {
+      console.log(collapsed)
+      return (
+        <p>G6 EA</p>
+      )
+    } else {
+      console.log(collapsed)
+      return (
+        <p>G6 Employee Attendance</p>
+      )
+    }
+  }
   return (
     <ProSidebar image={image ? sidebarBg : false} rtl={rtl} collapsed={collapsed} toggled={toggled} breakPoint="md" onToggle={handleToggleSidebar} style={{height:"100vh", position: "sticky", top: "0"}}>
       <SidebarHeader>
         <div style={{padding: "17px 24px 16px 24px", textTransform: "uppercase", fontWeight: "bold", fontSize: 14, letterSpacing: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-          G6 Employee Attendance
+          {checkHeader()}
         </div>
       </SidebarHeader>
       <SidebarContent>

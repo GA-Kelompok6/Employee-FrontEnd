@@ -41,3 +41,9 @@
 
 ## React Switch
 `npm i react-switch`
+
+## React Map GL
+`npm i react-map-gl`
+
+## Worker Loader
+`npm install worker-loader`

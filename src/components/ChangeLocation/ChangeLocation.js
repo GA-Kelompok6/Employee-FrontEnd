@@ -5,6 +5,7 @@ import Location from "./index"
 import MapGL, {Marker, NavigationControl} from 'react-map-gl';
 import Pin from './pin';
 import ControlPanel from './control-panel';
+import mapboxgl from 'mapbox-gl';
 
 export default function ChangeLocation({ Location }) {
    require("./style.css")
@@ -66,21 +67,23 @@ export default function ChangeLocation({ Location }) {
    const onMarkerDragStart = useCallback(event => {
       logEvents(_events => ({..._events, onDragStart: event.lngLat}));
    }, []);
-  
-  const onMarkerDrag = useCallback(event => {
+   
+   const onMarkerDrag = useCallback(event => {
       logEvents(_events => ({..._events, onDrag: event.lngLat}));
       // setLongitude(event.lngLat[0])
       // setLatitude(event.lngLat[1])
       setLocation({long : event.lngLat[0], lang :event.lngLat[1]})
    }, []);
-  
-  const onMarkerDragEnd = useCallback(event => {
+   
+   const onMarkerDragEnd = useCallback(event => {
       logEvents(_events => ({..._events, onDragEnd: event.lngLat}));
       setMarker({
-          longitude: event.lngLat[0],
-          latitude: event.lngLat[1]
+         longitude: event.lngLat[0],
+         latitude: event.lngLat[1]
       });
    }, []);
+
+   mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
    const MAPBOX_TOKEN = 'pk.eyJ1IjoieW91a3ZuIiwiYSI6ImNrdnlxd2k4bzRzcDUybnRrYWhucmlibGMifQ.YgRcw2T-czE0vjbxfP18Hw';
 
