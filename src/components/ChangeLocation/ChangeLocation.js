@@ -5,6 +5,7 @@ import Location from "./index"
 import MapGL, {Marker, NavigationControl} from 'react-map-gl';
 import Pin from './pin';
 import ControlPanel from './control-panel';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default function ChangeLocation({ Location }) {
    require("./style.css")
