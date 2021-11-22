@@ -167,7 +167,8 @@ export default function LoginPage() {
                   onSubmit={submitHandlerLogin}
                >
                   <h1>Login</h1>
-
+                  <div className="socialMedia">
+                  </div>
                   <input
                      type="text"
                      placeholder="Username"
