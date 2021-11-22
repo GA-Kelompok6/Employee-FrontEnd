@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Attendance from './Attendance';
 import axios from "axios";
 import { convertDistance } from 'geolib'
@@ -35,6 +35,7 @@ export default function Employee() {
       }
    }
 
+   useEffect(() => {
    const linkAPIProfile = `https://worker-attendance-app-backend.vercel.app/users/` + user.sub;
    axios
       .get(linkAPIProfile, {
@@ -49,6 +50,7 @@ export default function Employee() {
       .catch((err) => {
          console.log(err);
       });
+   }, [])
 
    const linkAPI = "https://worker-attendance-app-backend.vercel.app/attandence/add"
 
