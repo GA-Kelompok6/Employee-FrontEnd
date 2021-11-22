@@ -76,17 +76,7 @@ export default function LoginPage() {
                <form action="#" onSubmit={submitHandlerSignup}>
                   <h1 style={{ marginBottom: "0px" }}>Sign Up</h1>
                   <div className="socialMedia">
-                     <a href="/" className="social">
-                        <i className="fab fa-facebook-f"></i>
-                     </a>
-                     <a href="/" className="social">
-                        <i className="fab fa-google-plus-g"></i>
-                     </a>
-                     <a href="/" className="social">
-                        <i className="fab fa-linkedin-in"></i>
-                     </a>
                   </div>
-                  Or use email
                   <input
                      type="text"
                      placeholder="Username"
@@ -178,18 +168,6 @@ export default function LoginPage() {
                >
                   <h1>Login</h1>
 
-                  <div className="socialMedia">
-                     <a href="/" className="social">
-                        <i className="fab fa-facebook-f"></i>
-                     </a>
-                     <a href="/" className="social">
-                        <i className="fab fa-google-plus-g"></i>
-                     </a>
-                     <a href="/" className="social">
-                        <i className="fab fa-linkedin-in"></i>
-                     </a>
-                  </div>
-                  <span>Or use your account </span>
                   <input
                      type="text"
                      placeholder="Username"

@@ -13,6 +13,7 @@ import NewSideBar from '../newnavbar';
 
 export default function Employee() {
 
+   const [LongLang, setLocation] = useState({ longitude: "", latitude: "" });
    let [loading, setLoading] = useState(true);
    let [color, setColor] = useState("#23C8D4");
    const [done, setDone] = useState(true);
@@ -34,6 +35,21 @@ export default function Employee() {
       }
    }
 
+   const linkAPIProfile = `https://worker-attendance-app-backend.vercel.app/users/` + user.sub;
+   axios
+      .get(linkAPIProfile, {
+         headers: {
+            Authorization: "Bearer " + token,
+         },
+      })
+      .then((res) => {
+         console.log(res)
+         setLocation({longitude :res.data._doc.officeLoc[0], latitude:res.data._doc.officeLoc[1]})
+      })
+      .catch((err) => {
+         console.log(err);
+      });
+
    const linkAPI = "https://worker-attendance-app-backend.vercel.app/attandence/add"
 
    function CheckLocation() {
@@ -42,7 +58,8 @@ export default function Employee() {
       navigator.geolocation.getCurrentPosition(postition => {
          // Search Long, Lang
          const my_coords = { latitude: postition.coords.latitude, longitude: postition.coords.longitude }
-         const kantor_coords = { latitude: -6.990638, longitude: 110.423667 }
+         const kantor_coords = { latitude: LongLang.latitude, longitude: LongLang.longitude }
+         // const kantor_coords = { latitude: -6.990638, longitude: 110.423667 }
          // const kantor_coords = { latitude: -7.376397, longitude: 110.440711 }
 
          // 1000 buat akurasi
