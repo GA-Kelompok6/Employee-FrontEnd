@@ -83,7 +83,7 @@ export const registerActions = (values, e, history) => (dispatch) => {
       return false;
    }
 
-   console.log("tes param", values);
+   // console.log("tes param", values);
 
    return axios
       .post(
@@ -91,7 +91,7 @@ export const registerActions = (values, e, history) => (dispatch) => {
          values
       )
       .then((response) => {
-         console.log("res", response);
+         // console.log("res", response);
          localStorage.setItem("token", response.data);
 
          dispatch(setRegister);
@@ -115,7 +115,7 @@ export const registerActions = (values, e, history) => (dispatch) => {
          }).then((result) => {
             /* Read more about handling dismissals below */
             if (result.dismiss === Swal.DismissReason.timer) {
-               console.log('I was closed by the timer')
+               // console.log('I was closed by the timer')
             }
          }).then(() => {
             Swal.fire({
@@ -141,7 +141,7 @@ export const registerActions = (values, e, history) => (dispatch) => {
 export const loginActions = (values, e, history) => {
    return (dispatch) => {
       e.preventDefault();
-      console.log("tes param", values);
+      // console.log("tes param", values);
 
       return axios
          .post(
@@ -149,7 +149,7 @@ export const loginActions = (values, e, history) => {
             values
          )
          .then((response) => {
-            console.log("res", response.data);
+            // console.log("res", response.data);
             if (response.data !== undefined) {
                console.log("token ada");
 

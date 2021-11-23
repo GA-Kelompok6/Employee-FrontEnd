@@ -76,7 +76,7 @@ function Forget() {
                         if (passInput1 === passInput2){
                            const getUserID = user[0]._id;
                            const changePassword = { password: passInput2 };
-                           console.log(getUserID)
+                           // console.log(getUserID)
 
                            axios.put(
                               "https://worker-attendance-app-backend.vercel.app/forget/update/" +

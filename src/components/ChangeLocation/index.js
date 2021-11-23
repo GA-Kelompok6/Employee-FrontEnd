@@ -14,11 +14,11 @@ export default function ChangeOffice() {
 
    const Location = details => {
       // alert("HI")
-      console.log(details)
+      // console.log(details)
 
       const linkAPIUpdateProfile = `https://worker-attendance-app-backend.vercel.app/users/office/edit/` + userId;
       const convertData = Object.values(details)
-      console.log(convertData)
+      // console.log(convertData)
 
       const gabunganpanggil = { officeLoc: convertData }
 
@@ -30,7 +30,7 @@ export default function ChangeOffice() {
       axios
          .put(linkAPIUpdateProfile, gabunganpanggil, config)
          .then((Response) => {
-            console.log(Response);
+            // console.log(Response);
             Swal.fire({
                icon: 'success',
                title: 'Update Lokasi Kantor Berhasil',
@@ -38,7 +38,7 @@ export default function ChangeOffice() {
             })
          })
          .catch((err) => {
-            console.log(err);
+            // console.log(err);
             Swal.fire({
                icon: 'error',
                title: 'Update Lokasi Kantor Gagal',

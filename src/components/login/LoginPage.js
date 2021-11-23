@@ -62,7 +62,7 @@ export default function LoginPage() {
       }
    };
 
-   console.log("state error", user);
+   // console.log("state error", user);
 
    return (
       <div className="body">

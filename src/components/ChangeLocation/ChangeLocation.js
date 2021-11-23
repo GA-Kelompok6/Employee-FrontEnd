@@ -34,13 +34,13 @@ export default function ChangeLocation({ Location }) {
                },
             })
             .then((res) => {
-               console.log(res)
+               // console.log(res)
                // setLongitude(res.data._doc.officeLoc[0]);
                // setLatitude(res.data._doc.officeLoc[1]);
                setLocation({long :res.data._doc.officeLoc[0], lang:res.data._doc.officeLoc[1]})
             })
             .catch((err) => {
-               console.log(err);
+               // console.log(err);
             });
       };
       const data = profileupdate(user.sub, token);
@@ -67,7 +67,7 @@ export default function ChangeLocation({ Location }) {
       longitude: Math.min.apply(Math, [LongLang.long])
    });
 
-   console.log(marker, viewport)
+   // console.log(marker, viewport)
 
    const [events, logEvents] = useState({});
 

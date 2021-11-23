@@ -44,7 +44,7 @@ export default function Employee() {
          },
       })
       .then((res) => {
-         console.log(res)
+         // console.log(res)
          setLocation({longitude :res.data._doc.officeLoc[0], latitude:res.data._doc.officeLoc[1]})
       })
       .catch((err) => {

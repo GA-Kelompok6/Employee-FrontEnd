@@ -68,7 +68,7 @@ export default function Profile() {
       axios
          .put(linkAPIUpdateProfile, gabunganedit, config)
          .then((Response) => {
-            console.log(Response);
+            // console.log(Response);
             Swal.fire({
                icon: 'success',
                title: 'Update Profile Berhasil',

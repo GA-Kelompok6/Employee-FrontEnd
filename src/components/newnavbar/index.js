@@ -47,14 +47,14 @@ const index = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
 
   function checkHeader () {
     if (collapsed == true) {
-      console.log(collapsed)
+      // console.log(collapsed)
       return (
         <div style={{paddingTop: "17px", paddingBottom: "16px", textAlign: "center", textTransform: "uppercase", fontWeight: "bold", fontSize: 14, letterSpacing: "1px", overflow: "hidden", whiteSpace: "nowrap" }}>
           G6 EA
         </div>
       )
     } else {
-      console.log(collapsed)
+      // console.log(collapsed)
       return (
         <div style={{padding: "17px 24px 16px 24px", textTransform: "uppercase", fontWeight: "bold", fontSize: 14, letterSpacing: "1px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
           G6 Employee Attendance
